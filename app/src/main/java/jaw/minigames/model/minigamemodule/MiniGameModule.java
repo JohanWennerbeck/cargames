@@ -8,7 +8,7 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingo;
  */
 
 public class MiniGameModule {
-    ICarBingo carBingo;
+    private ICarBingo carBingo;
 
     public MiniGameModule(){
         carBingo = new CarBingo();

@@ -19,6 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.activity.CarBingoActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".view.activity.MainActivity" />
     </application>
 
 </manifest>

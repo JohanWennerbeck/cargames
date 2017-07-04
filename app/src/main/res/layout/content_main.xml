@@ -17,4 +17,15 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/CarBingoButton"
+        android:layout_width="273dp"
+        android:layout_height="93dp"
+        android:onClick="createCarBingo"
+        android:text="Car Bingo"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="89dp" />
+
 </android.support.constraint.ConstraintLayout>
