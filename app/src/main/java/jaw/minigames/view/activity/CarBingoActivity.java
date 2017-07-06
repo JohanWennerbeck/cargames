@@ -45,11 +45,6 @@ public class CarBingoActivity extends AppCompatActivity implements NavigationVie
                         Toast.LENGTH_SHORT).show();
             }
         });
-       // drawer.setDrawerListener(toggle);
-      //  toggle.syncState();
-
-       // NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-      //  navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override

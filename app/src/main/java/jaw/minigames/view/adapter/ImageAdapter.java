@@ -4,19 +4,23 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 
 import jaw.minigames.R;
+import jaw.minigames.graphicstest.SquareImageView;
+import jaw.minigames.model.minigamemodule.carbingogame.CarBingo;
+import jaw.minigames.model.minigamemodule.carbingogame.ICarBingo;
 
 /**
  * Created by johan on 7/4/2017.
  */
     public class ImageAdapter extends BaseAdapter {
         private Context mContext;
+        private ICarBingo carBingo;
 
         public ImageAdapter(Context c) {
             mContext = c;
+            this.carBingo = new CarBingo();
         }
 
         public int getCount() {
@@ -28,7 +32,7 @@ import jaw.minigames.R;
         }
 
         public long getItemId(int position) {
-            return 0;
+            return position;
         }
 
         // create a new ImageView for each item referenced by the Adapter
@@ -36,28 +40,21 @@ import jaw.minigames.R;
             ImageView imageView;
             if (convertView == null) {
                 // if it's not recycled, initialize some attributes
-                imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
-                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                imageView.setPadding(8, 8, 8, 8);
+                imageView = new SquareImageView(mContext);
+                imageView.setScaleType(SquareImageView.ScaleType.CENTER_CROP);
             } else {
-                imageView = (ImageView) convertView;
+                imageView = (SquareImageView) convertView;
             }
-
-            imageView.setImageResource(mThumbIds[position]);
+            
+            imageView.setImageResource(mThumbIds[carBingo.getCarBingoTiles().get(position).getType()-1]);
             return imageView;
         }
 
         // references to our images
         private Integer[] mThumbIds = {
-                R.drawable.ic_menu_camera,
-                R.drawable.ic_menu_gallery,
-                R.drawable.ic_menu_manage,
-                R.drawable.ic_menu_camera,
-                R.drawable.ic_menu_gallery,
-                R.drawable.ic_menu_manage,
-                R.drawable.ic_menu_camera,
-                R.drawable.ic_menu_gallery,
-                R.drawable.ic_menu_manage
+                R.drawable.ambulansen,
+                R.drawable.hast,
+                R.drawable.kossan,
+                R.drawable.polisbil,
         };
     }
