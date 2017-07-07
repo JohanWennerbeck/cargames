@@ -45,8 +45,8 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingo;
             } else {
                 imageView = (SquareImageView) convertView;
             }
-            
-            imageView.setImageResource(mThumbIds[carBingo.getCarBingoTiles().get(position).getType()-1]);
+
+            imageView.setImageResource(mThumbIds[carBingo.getCarBingoTiles().get(position).getType()]);
             return imageView;
         }
 

@@ -7,4 +7,7 @@ package jaw.minigames.model.minigamemodule.carbingogame;
 public interface ICarBingoTile {
     public int getType();
     public void setType(int type);
+    public boolean getChecked();
+    public void toggleChecked();
+    public void setChecked(boolean bool);
 }

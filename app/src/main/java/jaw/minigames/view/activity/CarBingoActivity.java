@@ -14,7 +14,10 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.EventBus;
+
 import jaw.minigames.R;
+import jaw.minigames.eventbus.TileCheckedEvent;
 import jaw.minigames.view.adapter.ImageAdapter;
 
 /**
@@ -43,6 +46,8 @@ public class CarBingoActivity extends AppCompatActivity implements NavigationVie
                                     int position, long id) {
                 Toast.makeText(CarBingoActivity.this, "Nice work! Keep going!",
                         Toast.LENGTH_SHORT).show();
+                EventBus.getDefault().post(new TileCheckedEvent(position));
+
             }
         });
     }

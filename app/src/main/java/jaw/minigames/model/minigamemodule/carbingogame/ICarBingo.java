@@ -10,4 +10,6 @@ public interface ICarBingo {
     public List<ICarBingoTile> getCarBingoTiles();
 
     public void setCarBingoTiles(List<ICarBingoTile> carBingoTiles);
+
+    public boolean checkBingoStatus();
 }
