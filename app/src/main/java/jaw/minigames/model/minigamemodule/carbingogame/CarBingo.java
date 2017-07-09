@@ -27,7 +27,23 @@ public class CarBingo implements ICarBingo {
     }
 
     public void initCarBingoTiles() {
-        int [] type = {CarBingoTile.S_AMBULANCE,CarBingoTile.S_COW, CarBingoTile.S_HORSE, CarBingoTile.S_POLICE};
+        int [] type = {CarBingoTile.S_AMBULANCE,
+                CarBingoTile.S_COW,
+                CarBingoTile.S_HORSE,
+                CarBingoTile.S_POLICE,
+                CarBingoTile.S_AIRPLANE,
+                CarBingoTile.S_BIKE,
+                CarBingoTile.S_BOAT,
+                CarBingoTile.S_CHURCH,
+                CarBingoTile.S_FLAG,
+                CarBingoTile.S_HELICOPTER,
+                CarBingoTile.S_MCDONALD,
+                CarBingoTile.S_SHEEP,
+                CarBingoTile.S_TRACTOR,
+                CarBingoTile.S_TRAIN,
+                CarBingoTile.S_WINDMILLER,
+                CarBingoTile.S_WINDTURBIN
+        };
         shuffle(type);
         carBingoTiles = CarBingoFactory.getInstance().createCarBingoTiles(type);
     }
@@ -53,9 +69,11 @@ public class CarBingo implements ICarBingo {
     public boolean checkBingoStatus(){
         if (checkHorizontal()){
             setChecked(true);
+            System.out.println("WOOHOOOOO");
             return true;
         } else if (checkVertical()){
             setChecked(true);
+            System.out.println("WWAAAAAAYY");
             return true;
         } else {
             setChecked(false);

@@ -14,4 +14,5 @@ public class MiniGameModuleFactory {
     public MiniGameModule createMiniGameModule (){
         return new MiniGameModule();
     }
+
 }

@@ -56,5 +56,17 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingo;
                 R.drawable.hast,
                 R.drawable.kossan,
                 R.drawable.polisbil,
+                R.drawable.ambulansen,
+                R.drawable.hast,
+                R.drawable.kossan,
+                R.drawable.polisbil,
+                R.drawable.ambulansen,
+                R.drawable.hast,
+                R.drawable.kossan,
+                R.drawable.polisbil,
+                R.drawable.ambulansen,
+                R.drawable.hast,
+                R.drawable.kossan,
+                R.drawable.polisbil,
         };
     }

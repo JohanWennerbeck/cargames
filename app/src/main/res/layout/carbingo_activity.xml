@@ -14,7 +14,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:horizontalSpacing="0dp"
-            android:numColumns="2"
+            android:numColumns="4"
             android:columnWidth="60dp"
             android:stretchMode="columnWidth"
             android:verticalSpacing="0dp"

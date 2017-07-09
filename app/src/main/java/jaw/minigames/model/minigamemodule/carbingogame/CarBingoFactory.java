@@ -22,4 +22,8 @@ public class CarBingoFactory implements ICarBingoFactory {
         carBingoTiles.add(new CarBingoTile(i));
         return carBingoTiles;
     }
+
+    public ICarBingo createCarBingo(){
+        return new CarBingo();
+    }
 }

@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface ICarBingoFactory {
     List<ICarBingoTile> createCarBingoTiles(int [] type);
+    ICarBingo createCarBingo();
 }
