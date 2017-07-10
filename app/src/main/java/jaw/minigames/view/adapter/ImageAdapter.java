@@ -17,8 +17,10 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingo;
     public class ImageAdapter extends BaseAdapter {
         private Context mContext;
         private ICarBingo carBingo;
+        ImageView imageView;
 
-        public ImageAdapter(Context c) {
+
+    public ImageAdapter(Context c) {
             mContext = c;
             this.carBingo = new CarBingo();
         }
@@ -37,7 +39,6 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingo;
 
         // create a new ImageView for each item referenced by the Adapter
         public View getView(int position, View convertView, ViewGroup parent) {
-            ImageView imageView;
             if (convertView == null) {
                 // if it's not recycled, initialize some attributes
                 imageView = new SquareImageView(mContext);
@@ -52,21 +53,21 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingo;
 
         // references to our images
         private Integer[] mThumbIds = {
-                R.drawable.ambulansen,
-                R.drawable.hast,
-                R.drawable.kossan,
-                R.drawable.polisbil,
-                R.drawable.ambulansen,
-                R.drawable.hast,
-                R.drawable.kossan,
-                R.drawable.polisbil,
-                R.drawable.ambulansen,
-                R.drawable.hast,
-                R.drawable.kossan,
-                R.drawable.polisbil,
-                R.drawable.ambulansen,
-                R.drawable.hast,
-                R.drawable.kossan,
-                R.drawable.polisbil,
+                R.drawable.ambulance,
+                R.drawable.airplane,
+                R.drawable.bike,
+                R.drawable.boat,
+                R.drawable.church,
+                R.drawable.cow,
+                R.drawable.flag,
+                R.drawable.helicopter,
+                R.drawable.horse,
+                R.drawable.mcdonalds,
+                R.drawable.police,
+                R.drawable.sheep,
+                R.drawable.tractor,
+                R.drawable.train,
+                R.drawable.windmiller,
+                R.drawable.windturbine,
         };
     }

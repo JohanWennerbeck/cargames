@@ -25,6 +25,7 @@ import jaw.minigames.view.adapter.ImageAdapter;
  */
 
 public class CarBingoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    GridView gridview;
 
 
     @Override
@@ -38,7 +39,7 @@ public class CarBingoActivity extends AppCompatActivity implements NavigationVie
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
-        GridView gridview = (GridView) findViewById(R.id.gridview);
+        gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -47,10 +48,10 @@ public class CarBingoActivity extends AppCompatActivity implements NavigationVie
                 Toast.makeText(CarBingoActivity.this, "Nice work! Keep going!",
                         Toast.LENGTH_SHORT).show();
                 EventBus.getDefault().post(new TileCheckedEvent(position));
-
             }
         });
     }
+
 
     @Override
     public void onBackPressed() {

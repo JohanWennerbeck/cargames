@@ -1,9 +1,7 @@
 package jaw.minigames.model.minigamemodule;
 
-import jaw.minigames.model.minigamemodule.carbingogame.CarBingo;
 import jaw.minigames.model.minigamemodule.carbingogame.CarBingoFactory;
 import jaw.minigames.model.minigamemodule.carbingogame.ICarBingo;
-import jaw.minigames.model.minigamemodule.fourinarow.FourInARow;
 import jaw.minigames.model.minigamemodule.fourinarow.FourInARowFactory;
 import jaw.minigames.model.minigamemodule.fourinarow.IFourInARow;
 
