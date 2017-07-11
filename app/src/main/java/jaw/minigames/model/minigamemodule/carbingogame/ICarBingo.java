@@ -12,4 +12,6 @@ public interface ICarBingo {
     public void setCarBingoTiles(List<ICarBingoTile> carBingoTiles);
 
     public boolean checkBingoStatus();
+
+    public void onTileCheckedEvent(int type);
 }

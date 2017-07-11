@@ -1,5 +1,10 @@
 package jaw.minigames.controller;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import jaw.minigames.eventbus.TileCheckedEvent;
 import jaw.minigames.model.Model;
 import jaw.minigames.view.activity.IMainView;
 import jaw.minigames.view.adapter.IMiniGameAdapter;
@@ -18,5 +23,12 @@ public class MainPresenter {
         this.mainView =mainView;
         this.model = model;
         miniGameAdapter = new MiniGameAdapter(mainView.getAppCompatActivity());
+        EventBus.getDefault().register(this);
     }
+
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void onTileCheckedEvent(TileCheckedEvent event){
+        this.model.getMiniGameModule().getCarBingo().onTileCheckedEvent(event.getType());
+    }
+
 }

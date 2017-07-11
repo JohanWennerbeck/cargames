@@ -1,15 +1,8 @@
 package jaw.minigames.model.minigamemodule.carbingogame;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import jaw.minigames.eventbus.BingoEvent;
-import jaw.minigames.eventbus.TileCheckedEvent;
 
 /**
  * Created by johan on 6/4/2017.
@@ -23,7 +16,6 @@ public class CarBingo implements ICarBingo {
         gotBingo = false;
         carBingoTiles = new ArrayList<>();
         initCarBingoTiles();
-        EventBus.getDefault().register(this);
     }
 
     public void initCarBingoTiles() {
@@ -83,9 +75,6 @@ public class CarBingo implements ICarBingo {
 
     public void setChecked(boolean bool){
         this.gotBingo = bool;
-        if (gotBingo){
-            EventBus.getDefault().post(new BingoEvent());
-        }
     }
 
     private boolean checkVertical() {
@@ -119,9 +108,9 @@ public class CarBingo implements ICarBingo {
         return false;
     }
 
-    @Subscribe (threadMode = ThreadMode.MAIN)
-    public void onTileCheckedEvent(TileCheckedEvent event){
-        this.carBingoTiles.get(event.getType()).toggleChecked();
+
+    public void onTileCheckedEvent(int type){
+        this.carBingoTiles.get(type).toggleChecked();
         this.checkBingoStatus();
     }
 }
