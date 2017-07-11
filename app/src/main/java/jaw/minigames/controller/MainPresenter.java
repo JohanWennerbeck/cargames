@@ -4,7 +4,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import jaw.minigames.eventbus.TileCheckedEvent;
+import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.model.Model;
 import jaw.minigames.view.activity.IMainView;
 import jaw.minigames.view.adapter.IMiniGameAdapter;
@@ -14,8 +14,7 @@ import jaw.minigames.view.adapter.MiniGameAdapter;
  * Created by johan on 7/4/2017.
  */
 
-public class MainPresenter {
-    private Model model;
+class MainPresenter extends BasePresenter implements IPresenter{
     private IMainView mainView;
     private IMiniGameAdapter miniGameAdapter;
 
@@ -26,9 +25,19 @@ public class MainPresenter {
         EventBus.getDefault().register(this);
     }
 
-    @Subscribe (threadMode = ThreadMode.MAIN)
-    public void onTileCheckedEvent(TileCheckedEvent event){
-        this.model.getMiniGameModule().getCarBingo().onTileCheckedEvent(event.getType());
+    @Override
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onCreate(OnCreateEvent event) {
+        if (event.object instanceof IMainView) {
+            mainView = (IMainView) event.object;
+
+            mainView.setNavDrawer();
+            mainView.setToolbar();
+        }
     }
 
+    @Override
+    public void injectModel(Model model) {
+        this.model = model;
+    }
 }

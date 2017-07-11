@@ -16,20 +16,22 @@ import org.greenrobot.eventbus.EventBus;
 import jaw.minigames.R;
 import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.view.adapter.CarBingoAdapter;
+import jaw.minigames.view.adapter.ICarBingoAdapter;
 
 /**
  * Created by johan on 6/4/2017.
  */
 
 public class CarBingoActivity extends AppCompatActivity implements ICarBingoView{
-    RecyclerView gridview;
+    private RecyclerView gridview;
+    private Toolbar toolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.carbingo_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
     //    setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -52,15 +54,9 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
         });*/
     }
 
-
     @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+    public AppCompatActivity getAppCompatActivity() {
+        return this;
     }
 
     @Override
@@ -83,6 +79,14 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void refreshItems() {
+        ICarBingoAdapter adapter = (ICarBingoAdapter) gridview.getAdapter();
+        adapter.refreshItems();
+
+        // Stop refresh animation
+       // refreshLayout.setRefreshing(false);
     }
 
     public boolean onNavigationItemSelected(MenuItem item) {
