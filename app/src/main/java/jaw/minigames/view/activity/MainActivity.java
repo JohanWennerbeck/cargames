@@ -14,10 +14,16 @@ import android.view.MenuItem;
 import org.greenrobot.eventbus.EventBus;
 
 import jaw.minigames.R;
+import jaw.minigames.controller.IPresenterFactory;
+import jaw.minigames.controller.PresenterFactory;
 import jaw.minigames.eventbus.OnCreateEvent;
+import jaw.minigames.eventbus.RequestPresenterEvent;
+import jaw.minigames.eventbus.UpdateContextReferenceEvent;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements IMainView, NavigationView.OnNavigationItemSelectedListener {
+
+    private static boolean initialized = false;
+    private final IPresenterFactory presenterFactory  = PresenterFactory.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,14 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        if(!initialized) {
+            presenterFactory.initializeDelegatingPresenter(this);
+            initialized = true;
+        } else {
+            EventBus.getDefault().post(new UpdateContextReferenceEvent(this));
+        }
+        attachPresenter();
 
         EventBus.getDefault().post(new OnCreateEvent(this));
 
@@ -99,5 +113,24 @@ public class MainActivity extends AppCompatActivity
     public void openNext(){
         Intent intent = new Intent(this, CarBingoActivity.class);
         startActivity(intent);
+    }
+
+    private void attachPresenter() {
+        EventBus.getDefault().post(new RequestPresenterEvent(this));
+    }
+
+    @Override
+    public AppCompatActivity getAppCompatActivity() {
+        return this;
+    }
+
+    @Override
+    public void setToolbar() {
+
+    }
+
+    @Override
+    public void setNavDrawer() {
+
     }
 }

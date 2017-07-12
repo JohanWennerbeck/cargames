@@ -29,7 +29,6 @@ public class PresenterFactory implements IPresenterFactory {
         return new MainPresenter(mainView, model);
     }
 
-    @Override
     public CarBingoPresenter createCarBingoPresenter(Model model) {
         return new CarBingoPresenter(model);
     }

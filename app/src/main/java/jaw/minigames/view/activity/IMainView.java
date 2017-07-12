@@ -8,6 +8,4 @@ public interface IMainView extends IView{
     void setToolbar();
 
     void setNavDrawer();
-
-    void setCurrentActivity();
 }

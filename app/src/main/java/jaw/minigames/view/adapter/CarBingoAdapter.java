@@ -37,7 +37,7 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingoTile;
             View carBingoView;
             CarBingoViewHolder carBingoViewHolder;
 
-            carBingoView = inflater.inflate(R.layout.carbingo_activity, parent, false);
+            carBingoView = inflater.inflate(R.layout.tile_res, parent, false);
             carBingoViewHolder = new CarBingoViewHolder(carBingoView);
             return carBingoViewHolder;
         }
@@ -58,10 +58,11 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingoTile;
 
             public CarBingoViewHolder(View itemView) {
                 super(itemView);
+                tileImage = (ImageView) itemView.findViewById(R.id.imageButton);
             }
 
             public void setCarBingoTiles(){
-                tileImage.setImageResource(R.drawable.cross);
+                tileImage.setImageResource(mThumbIds[carBingoTile.getType()]);
 
                 if(this.carBingoTile.getChecked()){
                     tileImage.setImageResource(R.drawable.cross);

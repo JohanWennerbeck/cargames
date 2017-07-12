@@ -15,6 +15,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import jaw.minigames.R;
 import jaw.minigames.eventbus.OnCreateEvent;
+import jaw.minigames.eventbus.RequestPresenterEvent;
 import jaw.minigames.view.adapter.CarBingoAdapter;
 import jaw.minigames.view.adapter.ICarBingoAdapter;
 
@@ -30,18 +31,20 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.carbingo_activity);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        gridview = (RecyclerView) findViewById(R.id.carBingoGrid);
+        //toolbar = (Toolbar) findViewById(R.id.toolbar);
     //    setSupportActionBar(toolbar);
+        gridview.setLayoutManager(new GridLayoutManager(this, 4));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
-        gridview = (RecyclerView) findViewById(R.id.carBingoGrid);
 
-        gridview.setLayoutManager(new GridLayoutManager(this, 4));
-
+        EventBus.getDefault().post(new RequestPresenterEvent(this));
         EventBus.getDefault().post(new OnCreateEvent(this));
 
         /*gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
