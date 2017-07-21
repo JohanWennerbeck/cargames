@@ -27,8 +27,48 @@ public class FourInARow implements IFourInARow {
     }
 
     public void onTileTappedEvent(int i){
-        this.tiles.get(i).setColor(turn);
+        int rightTile = i;
+        while (rightTile < 35){
+            rightTile = rightTile +7;
+        }
+        while (tiles.get(rightTile).getColor() != FourInARowTile.BLANK){
+            rightTile = rightTile - 7;
+            if(rightTile < 0){
+                return;
+            }
+        }
+        this.tiles.get(rightTile).setColor(turn);
         this.switchTurn(turn);
+        for (int k = 0; k < 7; k++)
+        System.out.print(tiles.get(k).getColor());
+
+        System.out.println(" ");
+
+        for (int k = 7; k < 14; k++)
+            System.out.print(tiles.get(k).getColor());
+
+        System.out.println(" ");
+
+        for (int k = 14; k < 21; k++)
+            System.out.print(tiles.get(k).getColor());
+
+        System.out.println(" ");
+
+        for (int k = 21; k < 28; k++)
+            System.out.print(tiles.get(k).getColor());
+
+        System.out.println(" ");
+
+        for (int k = 28; k < 35; k++)
+            System.out.print(tiles.get(k).getColor());
+
+        System.out.println(" ");
+
+        for (int k = 35; k < 42; k++)
+            System.out.print(tiles.get(k).getColor());
+
+        System.out.println(" ");
+
     }
 
     public void switchTurn(int tileColor){

@@ -70,19 +70,22 @@ public class FourInARowAdapter extends RecyclerView.Adapter<FourInARowAdapter.Fo
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view){
                     EventBus.getDefault().post(new TileTappedEvent(i));
-                    if(fourInARowTile.getColor()== FourInARowTile.RED){
-                        button.setText("RED");
-                    } else if (fourInARowTile.getColor()== FourInARowTile.BLUE) {
-                        button.setText("BLUE");
-                    } else {
-                        button.setText("BLANK");
-                    }
+                   // EventBus.getDefault().post(new UpdateActivityEvent());
+                    /*for(int i = 0; i < 42; i++) {
+                        setFourInARowTiles(i);
+                    }*/
                 }
             });
         }
 
         public void setFourInARowTiles(int i){
-            button.setText(tileText[i]);
+            if(fourInARowTile.getColor()== FourInARowTile.RED){
+                button.setText("RED");
+            } else if (fourInARowTile.getColor()== FourInARowTile.BLUE) {
+                button.setText("BLUE");
+            } else {
+                button.setText("BLANK");
+            }
         }
 
         private String[] tileText = {"Blank","Blank","Blank","Blank","Blank","Blank","Blank","Blank",

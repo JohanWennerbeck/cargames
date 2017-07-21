@@ -37,7 +37,7 @@ public class FourInARowActivity extends AppCompatActivity implements IFourInARow
         gridview = (RecyclerView) findViewById(R.id.fourInARowGrid);
         //toolbar = (Toolbar) findViewById(R.id.toolbar);
         //    setSupportActionBar(toolbar);
-        gridview.setLayoutManager(new GridLayoutManager(this, 4));
+        gridview.setLayoutManager(new GridLayoutManager(this, 7));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
