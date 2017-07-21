@@ -16,14 +16,14 @@ public class FourInARowFactory implements IFourInARowFactory {
 
     @Override
     public IFourInARow createFourInARow() {
-        return new FourInARow(this.createFourInARowTiles());
+        return new FourInARow();
     }
 
     @Override
     public List<IFourInARowTile> createFourInARowTiles(){
-        List<IFourInARowTile> tiles = new ArrayList<>(42);
-        for (int i = 0; i < tiles.size(); i++){
-            tiles.get(i).setColor(FourInARowTile.BLANK);
+        List<IFourInARowTile> tiles = new ArrayList<>();
+        for (int i = 0; i < 42; i++){
+            tiles.add(new FourInARowTile(FourInARowTile.BLANK));
         }
         return tiles;
     }

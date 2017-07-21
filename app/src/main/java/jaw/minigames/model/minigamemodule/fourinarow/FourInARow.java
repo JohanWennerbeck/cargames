@@ -1,5 +1,6 @@
 package jaw.minigames.model.minigamemodule.fourinarow;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,9 +11,14 @@ public class FourInARow implements IFourInARow {
     private List<IFourInARowTile> tiles;
     private int turn;
 
-    public FourInARow(List<IFourInARowTile> tiles){
-        this.tiles = tiles;
+    public FourInARow(){
+        this.tiles = new ArrayList<>();
         this.turn = FourInARowTile.BLUE;
+        initFourInARow();
+    }
+
+    private void initFourInARow(){
+        tiles = FourInARowFactory.getInstance().createFourInARowTiles();
     }
 
     @Override
