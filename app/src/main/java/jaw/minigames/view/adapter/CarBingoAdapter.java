@@ -35,6 +35,7 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingoTile;
 
         // create a new ImageView for each item referenced by the Adapter
         public CarBingoViewHolder onCreateViewHolder(ViewGroup parent, int position) {
+            System.out.println("CarAdapter");
             Context context = parent.getContext();
             LayoutInflater inflater = LayoutInflater.from(context);
             View carBingoView;

@@ -20,6 +20,10 @@
             </intent-filter>
         </activity>
         <activity
+        android:name=".view.activity.FourInARowActivity"
+        android:screenOrientation="portrait"
+        android:parentActivityName=".view.activity.MainActivity" />
+        <activity
             android:name=".view.activity.CarBingoActivity"
             android:screenOrientation="portrait"
             android:parentActivityName=".view.activity.MainActivity" />

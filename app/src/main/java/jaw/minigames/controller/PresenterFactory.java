@@ -30,6 +30,12 @@ public class PresenterFactory implements IPresenterFactory {
     }
 
     public CarBingoPresenter createCarBingoPresenter(Model model) {
+        System.out.println("CarPresenter");
         return new CarBingoPresenter(model);
+    }
+
+    public FourInARowPresenter createFourInARowPresenter(Model model) {
+        System.out.println("PresenterFactry");
+        return new FourInARowPresenter(model);
     }
 }

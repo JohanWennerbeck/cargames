@@ -21,12 +21,14 @@ public class CarBingoPresenter implements IPresenter {
 
     public CarBingoPresenter (Model model){
         this.model = model;
+        System.out.println("CarPRES");
         EventBus.getDefault().register(this);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onCreate(OnCreateEvent event) {
         if (event.object instanceof ICarBingoView) {
+            System.out.println("Inne i Car oncreate");
             carBingoView = (ICarBingoView) event.object;
             carBingoView.setToolbar();
             carBingoAdapter = new CarBingoAdapter(model.getMiniGameModule().getCarBingo());

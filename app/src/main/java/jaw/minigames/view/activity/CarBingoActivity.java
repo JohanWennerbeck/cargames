@@ -46,7 +46,7 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
 
         EventBus.getDefault().post(new RequestPresenterEvent(this));
         EventBus.getDefault().post(new OnCreateEvent(this));
-
+        System.out.println("CARACT");
         /*gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
@@ -98,7 +98,7 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
 
         if (id == R.id.Car_Bingo) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.Four_In_A_Row) {
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -119,6 +119,7 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
 
     @Override
     public void setCarBingoAdapter(CarBingoAdapter adapter) {
+        System.out.println("Inne i Set Car adapter");
         gridview.setAdapter(adapter);
     }
 

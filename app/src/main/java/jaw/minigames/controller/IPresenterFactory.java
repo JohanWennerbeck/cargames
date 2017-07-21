@@ -12,5 +12,6 @@ import jaw.minigames.view.activity.IMainView;
 public interface IPresenterFactory {
     MainPresenter createMainPresenter(IMainView mainView, Model model);
     CarBingoPresenter createCarBingoPresenter(Model model);
+    FourInARowPresenter createFourInARowPresenter(Model model);
     DelegatingPresenter initializeDelegatingPresenter(Context context);
 }

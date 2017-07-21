@@ -13,6 +13,7 @@ import jaw.minigames.eventbus.RemovePresenterEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
 import jaw.minigames.model.Model;
 import jaw.minigames.view.activity.ICarBingoView;
+import jaw.minigames.view.activity.IFourInARowView;
 import jaw.minigames.view.activity.IMainView;
 
 /**
@@ -45,7 +46,11 @@ public class DelegatingPresenter {
         if (event.data == mContext) {
             presenter = factory.createMainPresenter((IMainView) mContext, model);
 
+        }else if (event.data instanceof IFourInARowView) {
+            System.out.println("Delegating");
+            presenter = factory.createFourInARowPresenter(model);
         } else if (event.data instanceof ICarBingoView) {
+            System.out.println("DelCAR");
             presenter = factory.createCarBingoPresenter(model);
         }
         presenters.add(presenter);

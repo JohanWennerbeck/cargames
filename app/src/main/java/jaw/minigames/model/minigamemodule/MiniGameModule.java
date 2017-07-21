@@ -26,4 +26,12 @@ public class MiniGameModule {
     public void setCarBingo(ICarBingo carBingo) {
         this.carBingo = carBingo;
     }
+
+    public IFourInARow getFourInARow(){
+        return fourInARow;
+    }
+
+    public void setFourInARow(IFourInARow fourInARow) {
+        this.fourInARow = fourInARow;
+    }
 }

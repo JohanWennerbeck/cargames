@@ -7,17 +7,17 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Car Bingo" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/Four_In_A_Row"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:title="Four in a row" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="Fortsätt" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Kämpa" />
     </group>
 
     <item android:title="Communicate">
@@ -25,11 +25,11 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="Johan" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="!!!!!" />
         </menu>
     </item>
 
