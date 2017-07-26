@@ -12,10 +12,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import jaw.minigames.R;
 import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
+import jaw.minigames.eventbus.UpdateFourInARowActivityEvent;
+import jaw.minigames.model.minigamemodule.fourinarow.IFourInARow;
 import jaw.minigames.view.adapter.FourInARowAdapter;
 import jaw.minigames.view.adapter.IFourInARowAdapter;
 
@@ -26,6 +30,7 @@ import jaw.minigames.view.adapter.IFourInARowAdapter;
 public class FourInARowActivity extends AppCompatActivity implements IFourInARowView {
     private RecyclerView gridview;
     private Toolbar toolbar;
+    private IFourInARow fourInARow;
 
 
     @Override
@@ -46,6 +51,7 @@ public class FourInARowActivity extends AppCompatActivity implements IFourInARow
 
         EventBus.getDefault().post(new RequestPresenterEvent(this));
         EventBus.getDefault().post(new OnCreateEvent(this));
+        EventBus.getDefault().register(this);
         System.out.println("Activity");
         /*gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
@@ -55,6 +61,10 @@ public class FourInARowActivity extends AppCompatActivity implements IFourInARow
                 EventBus.getDefault().post(new TileCheckedEvent(position));
             }
         });*/
+    }
+
+    public RecyclerView getGridView(){
+        return gridview;
     }
 
     @Override
@@ -84,9 +94,10 @@ public class FourInARowActivity extends AppCompatActivity implements IFourInARow
         return super.onOptionsItemSelected(item);
     }
 
-    private void refreshItems() {
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void refreshItems(UpdateFourInARowActivityEvent event) {
         IFourInARowAdapter adapter = (IFourInARowAdapter) gridview.getAdapter();
-        adapter.refreshItems();
+        adapter.refreshItems(fourInARow);
 
         // Stop refresh animation
         // refreshLayout.setRefreshing(false);
@@ -127,5 +138,9 @@ public class FourInARowActivity extends AppCompatActivity implements IFourInARow
     @Override
     public void setToolbar() {
 
+    }
+
+    public void setFourInARow(IFourInARow fourInARow){
+        this.fourInARow = fourInARow;
     }
 }

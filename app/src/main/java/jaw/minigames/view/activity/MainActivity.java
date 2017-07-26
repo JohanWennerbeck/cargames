@@ -1,6 +1,5 @@
 package jaw.minigames.view.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,6 +17,8 @@ import jaw.minigames.controller.IPresenterFactory;
 import jaw.minigames.controller.PresenterFactory;
 import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
+import jaw.minigames.eventbus.ShowCarBingoEvent;
+import jaw.minigames.eventbus.ShowFourInARowEvent;
 import jaw.minigames.eventbus.UpdateContextReferenceEvent;
 
 public class MainActivity extends AppCompatActivity implements IMainView, NavigationView.OnNavigationItemSelectedListener {
@@ -111,13 +112,11 @@ public class MainActivity extends AppCompatActivity implements IMainView, Naviga
     }
 
     public void openNextCarBingo(){
-        Intent intent = new Intent(this, CarBingoActivity.class);
-        startActivity(intent);
+        EventBus.getDefault().post(new ShowCarBingoEvent());
     }
 
     public void openNextFourInARow(){
-        Intent intent = new Intent(this, FourInARowActivity.class);
-        startActivity(intent);
+        EventBus.getDefault().post(new ShowFourInARowEvent());
     }
 
     private void attachPresenter() {

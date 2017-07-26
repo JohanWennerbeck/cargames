@@ -5,6 +5,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import jaw.minigames.eventbus.OnCreateEvent;
+import jaw.minigames.eventbus.RequestFourInARowEvent;
 import jaw.minigames.model.Model;
 import jaw.minigames.view.activity.IFourInARowView;
 import jaw.minigames.view.adapter.FourInARowAdapter;
@@ -33,12 +34,18 @@ public class FourInARowPresenter implements IPresenter {
             fourInARowView.setToolbar();
             fourInARowAdapter = new FourInARowAdapter(model.getMiniGameModule().getFourInARow());
             fourInARowView.setFourInARowAdapter((FourInARowAdapter) fourInARowAdapter);
+            fourInARowView.setFourInARow(model.getMiniGameModule().getFourInARow());
         }
     }
 
     @Override
     public void injectModel(Model model) {
         this.model = model;
+    }
+
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void onRequestForInARowEvent(RequestFourInARowEvent event){
+        event.adapter.updateFourInARow(this.model.getMiniGameModule().getFourInARow());
     }
 
 }

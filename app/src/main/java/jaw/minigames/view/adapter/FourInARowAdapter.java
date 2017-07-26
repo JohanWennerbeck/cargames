@@ -9,8 +9,12 @@ import android.widget.Button;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.List;
+
 import jaw.minigames.R;
+import jaw.minigames.eventbus.RequestFourInARowEvent;
 import jaw.minigames.eventbus.TileTappedEvent;
+import jaw.minigames.eventbus.UpdateFourInARowActivityEvent;
 import jaw.minigames.model.minigamemodule.fourinarow.FourInARowTile;
 import jaw.minigames.model.minigamemodule.fourinarow.IFourInARow;
 import jaw.minigames.model.minigamemodule.fourinarow.IFourInARowTile;
@@ -37,9 +41,9 @@ public class FourInARowAdapter extends RecyclerView.Adapter<FourInARowAdapter.Fo
     // create a new ImageView for each item referenced by the Adapter
     public FourInARowViewHolder onCreateViewHolder(ViewGroup parent, int position) {
         System.out.println("Adapter");
+        View fourInARowView;
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View fourInARowView;
         FourInARowViewHolder fourInARowViewHolder;
 
         fourInARowView = inflater.inflate(R.layout.tile_res_simple, parent, false);
@@ -54,8 +58,76 @@ public class FourInARowAdapter extends RecyclerView.Adapter<FourInARowAdapter.Fo
     }
 
     @Override
-    public void refreshItems() {
+    public void onBindViewHolder(FourInARowViewHolder viewHolder, int position, List<Object> payloads) {
+        if (payloads.isEmpty()) {
+            // Perform a full update
+            onBindViewHolder(viewHolder, position);
+        } else {
+            // Perform a partial update
+            for (Object payload : payloads) {
+                if (payload instanceof FourInARowTile) {
+                    bindFourInARowPayload((FourInARowTile) payload);
+                }
+            }
+        }
+    }
 
+    public void bindFourInARowPayload(FourInARowTile payload){
+
+    }
+
+
+    @Override
+    public void refreshItems(IFourInARow fourInARow) {
+        EventBus.getDefault().post(new RequestFourInARowEvent(this));
+    }
+
+    public void updateFourInARow(IFourInARow newFourInARow){
+        notifyItemRangeChanged(0, 41, newFourInARow.getTiles());
+
+
+        /*for (int i = 0; i < 42; i++) {
+            new FourInARowViewHolder(fourInARowView).setFourInARowTiles(i);
+        }
+        final FourInARowDiffCallback diffCallback = new FourInARowDiffCallback(this.fourInARow, newFourInARow);
+        final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
+
+        this.fourInARow.getTiles().clear();
+        this.fourInARow.getTiles().addAll(newFourInARow.getTiles());
+        diffResult.dispatchUpdatesTo(this);
+    }
+
+    private class FourInARowDiffCallback extends DiffUtil.Callback {
+        private final IFourInARow oldFourInARow;
+        private final IFourInARow newFourInARow;
+
+        public FourInARowDiffCallback(IFourInARow oldFourInARow, IFourInARow newFourInARow) {
+            this.oldFourInARow = oldFourInARow;
+            this.newFourInARow = newFourInARow;
+        }
+
+        @Override
+        public int getOldListSize() {
+            return oldFourInARow.getTiles().size();
+        }
+
+        @Override
+        public int getNewListSize() {
+            return oldFourInARow.getTiles().size();
+        }
+
+        @Override
+        public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+            return false;
+        }
+
+        @Override
+        public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+            final IFourInARowTile oldTile = oldFourInARow.getTiles().get(oldItemPosition);
+            final IFourInARowTile newTile = newFourInARow.getTiles().get(newItemPosition);
+
+            return oldTile.getColor() == (newTile.getColor());
+        }*/
     }
 
     public static class FourInARowViewHolder extends RecyclerView.ViewHolder {
@@ -70,6 +142,7 @@ public class FourInARowAdapter extends RecyclerView.Adapter<FourInARowAdapter.Fo
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view){
                     EventBus.getDefault().post(new TileTappedEvent(i));
+                    EventBus.getDefault().post(new UpdateFourInARowActivityEvent());
                    // EventBus.getDefault().post(new UpdateActivityEvent());
                     /*for(int i = 0; i < 42; i++) {
                         setFourInARowTiles(i);
@@ -87,12 +160,5 @@ public class FourInARowAdapter extends RecyclerView.Adapter<FourInARowAdapter.Fo
                 button.setText("BLANK");
             }
         }
-
-        private String[] tileText = {"Blank","Blank","Blank","Blank","Blank","Blank","Blank","Blank",
-                "Blank","Blank","Blank","Blank","Blank","Blank","Blank","Blank",
-                "Blank","Blank","Blank","Blank","Blank","Blank","Blank","Blank",
-                "Blank","Blank","Blank","Blank","Blank","Blank","Blank","Blank",
-                "Blank","Blank","Blank","Blank","Blank","Blank","Blank","Blank",
-                "Blank", "Blank"};
     }
 }
