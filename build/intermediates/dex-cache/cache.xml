@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\MiniGames\app\libs\svg-android-1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9f7c80e87e9925b691875dc9388869d87515f7d2">
+        <dex dex="C:\MiniGames\app\build\intermediates\transforms\dex\debug\folders\1000\2\svg-android-1.1_dec56c46c6ffa447088de48905ada1553d61862f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MiniGames\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9e25dff3053eed1bfe700ffa97a0b8b0b3e0620f">
+        <dex dex="C:\MiniGames\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_b751c74f610c1a43d9c09a643f5bbe8e9a51708b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\MiniGames\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\MiniGames\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a46d28fa389499962e9380a97abd0b53494805c1\classes.dex" />
+    </item>
+
+</items>
