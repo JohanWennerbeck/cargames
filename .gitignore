@@ -1,5 +1,4 @@
 *.iml
-.gradle
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
@@ -8,12 +7,6 @@
 /captures
 .externalNativeBuild
 .idea/
-build.gradle
-gradle.properties
-gradle/
-gradlew
-gradlew.bat
-settings.gradle
 
 # Compiled class file
 *.class
