@@ -9,8 +9,6 @@ import java.util.List;
 public interface ICarBingo {
     public List<ICarBingoTile> getCarBingoTiles();
 
-    public void setCarBingoTiles(List<ICarBingoTile> carBingoTiles);
-
     public boolean checkBingoStatus();
 
     public void onTileCheckedEvent(int type);

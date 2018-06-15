@@ -11,9 +11,9 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="Four in a row" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/Memory"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Fortsätt" />
+            android:title="Memory" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"

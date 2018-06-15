@@ -15,6 +15,7 @@ import jaw.minigames.model.Model;
 import jaw.minigames.view.activity.ICarBingoView;
 import jaw.minigames.view.activity.IFourInARowView;
 import jaw.minigames.view.activity.IMainView;
+import jaw.minigames.view.activity.IMemoryView;
 
 /**
  * Created by johan on 7/11/2017.
@@ -52,6 +53,8 @@ public class DelegatingPresenter {
         } else if (event.data instanceof ICarBingoView) {
             System.out.println("DelCAR");
             presenter = factory.createCarBingoPresenter(model);
+        } else if (event.data instanceof IMemoryView) {
+            presenter = factory.createMemoryPresenter(model);
         }
         presenters.add(presenter);
     }

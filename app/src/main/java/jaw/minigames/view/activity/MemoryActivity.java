@@ -3,6 +3,7 @@ package jaw.minigames.view.activity;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,60 +13,34 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import jaw.minigames.R;
 import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
-import jaw.minigames.eventbus.UpdateFourInARowActivityEvent;
-import jaw.minigames.model.minigamemodule.fourinarow.IFourInARow;
-import jaw.minigames.view.adapter.FourInARowAdapter;
-import jaw.minigames.view.adapter.IFourInARowAdapter;
+import jaw.minigames.view.adapter.IMemoryAdapter;
+import jaw.minigames.view.adapter.MemoryAdapter;
 
-/**
- * Created by johan on 7/19/2017.
- */
-
-public class FourInARowActivity extends AppCompatActivity implements IFourInARowView {
+public class MemoryActivity extends AppCompatActivity implements IMemoryView {
     private RecyclerView gridview;
     private Toolbar toolbar;
-    private IFourInARow fourInARow;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.fourinarow_activity);
+        setContentView(R.layout.memory_activity);
 
-        gridview = (RecyclerView) findViewById(R.id.fourInARowGrid);
-        //toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //    setSupportActionBar(toolbar);
-        gridview.setLayoutManager(new GridLayoutManager(this, 7));
+        gridview = (RecyclerView) findViewById(R.id.memoryGrid);
+
+        gridview.setLayoutManager(new GridLayoutManager(this, 4));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         EventBus.getDefault().post(new RequestPresenterEvent(this));
         EventBus.getDefault().post(new OnCreateEvent(this));
-        EventBus.getDefault().register(this);
-        System.out.println("Activity");
-        /*gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(CarBingoActivity.this, "Nice work! Keep going!",
-                        Toast.LENGTH_SHORT).show();
-                EventBus.getDefault().post(new TileCheckedEvent(position));
-            }
-        });*/
     }
 
-    public RecyclerView getGridView(){
-        return gridview;
-    }
 
     @Override
     public AppCompatActivity getAppCompatActivity() {
@@ -94,10 +69,9 @@ public class FourInARowActivity extends AppCompatActivity implements IFourInARow
         return super.onOptionsItemSelected(item);
     }
 
-    @Subscribe (threadMode = ThreadMode.MAIN)
-    public void refreshItems(UpdateFourInARowActivityEvent event) {
-        IFourInARowAdapter adapter = (IFourInARowAdapter) gridview.getAdapter();
-        adapter.refreshItems(fourInARow);
+    private void refreshItems() {
+        IMemoryAdapter adapter = (IMemoryAdapter) gridview.getAdapter();
+        adapter.refreshItems();
 
         // Stop refresh animation
         // refreshLayout.setRefreshing(false);
@@ -129,18 +103,13 @@ public class FourInARowActivity extends AppCompatActivity implements IFourInARow
 
 
     @Override
-    public void setFourInARowAdapter(FourInARowAdapter adapter) {
-        System.out.println("Inne i set adapter");
+    public void setMemoryAdapter(MemoryAdapter adapter) {
+        System.out.println("Inne i Set Memory adapter");
         gridview.setAdapter(adapter);
     }
-
 
     @Override
     public void setToolbar() {
 
-    }
-
-    public void setFourInARow(IFourInARow fourInARow){
-        this.fourInARow = fourInARow;
     }
 }

@@ -14,4 +14,5 @@ public interface IPresenterFactory {
     CarBingoPresenter createCarBingoPresenter(Model model);
     FourInARowPresenter createFourInARowPresenter(Model model);
     DelegatingPresenter initializeDelegatingPresenter(Context context);
+    MemoryPresenter createMemoryPresenter(Model model);
 }

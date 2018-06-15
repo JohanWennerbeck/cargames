@@ -19,6 +19,7 @@ import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
 import jaw.minigames.eventbus.ShowCarBingoEvent;
 import jaw.minigames.eventbus.ShowFourInARowEvent;
+import jaw.minigames.eventbus.ShowMemoryEvent;
 import jaw.minigames.eventbus.UpdateContextReferenceEvent;
 
 public class MainActivity extends AppCompatActivity implements IMainView, NavigationView.OnNavigationItemSelectedListener {
@@ -96,8 +97,8 @@ public class MainActivity extends AppCompatActivity implements IMainView, Naviga
             openNextCarBingo();
         } else if (id == R.id.Four_In_A_Row) {
             openNextFourInARow();
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.Memory) {
+            openNextMemory();
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
@@ -118,6 +119,8 @@ public class MainActivity extends AppCompatActivity implements IMainView, Naviga
     public void openNextFourInARow(){
         EventBus.getDefault().post(new ShowFourInARowEvent());
     }
+
+    public void openNextMemory() { EventBus.getDefault().post(new ShowMemoryEvent());}
 
     private void attachPresenter() {
         EventBus.getDefault().post(new RequestPresenterEvent(this));

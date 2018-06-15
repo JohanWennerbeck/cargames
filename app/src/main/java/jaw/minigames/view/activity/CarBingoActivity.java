@@ -100,7 +100,7 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
             // Handle the camera action
         } else if (id == R.id.Four_In_A_Row) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.Memory) {
 
         } else if (id == R.id.nav_manage) {
 

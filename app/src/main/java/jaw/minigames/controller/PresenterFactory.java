@@ -38,4 +38,8 @@ public class PresenterFactory implements IPresenterFactory {
         System.out.println("PresenterFactry");
         return new FourInARowPresenter(model);
     }
+
+    public MemoryPresenter createMemoryPresenter(Model model) {
+        return new MemoryPresenter(model);
+    }
 }

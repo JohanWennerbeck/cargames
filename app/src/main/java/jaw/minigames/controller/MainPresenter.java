@@ -9,13 +9,16 @@ import org.greenrobot.eventbus.ThreadMode;
 import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.eventbus.ShowCarBingoEvent;
 import jaw.minigames.eventbus.ShowFourInARowEvent;
+import jaw.minigames.eventbus.ShowMemoryEvent;
 import jaw.minigames.eventbus.TileCheckedEvent;
 import jaw.minigames.eventbus.TileTappedEvent;
 import jaw.minigames.model.Model;
 import jaw.minigames.view.activity.CarBingoActivity;
 import jaw.minigames.view.activity.FourInARowActivity;
 import jaw.minigames.view.activity.IMainView;
+import jaw.minigames.view.activity.MemoryActivity;
 import jaw.minigames.view.adapter.IMiniGameAdapter;
+import jaw.minigames.view.adapter.MemoryAdapter;
 import jaw.minigames.view.adapter.MiniGameAdapter;
 
 /**
@@ -68,6 +71,12 @@ class MainPresenter extends BasePresenter implements IPresenter{
     @Subscribe (threadMode = ThreadMode.MAIN)
     public void onShowFourInARowEvent(ShowFourInARowEvent event){
         Intent intent = new Intent(mainView.getAppCompatActivity(), FourInARowActivity.class);
+        mainView.getAppCompatActivity().startActivity(intent);
+    }
+
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void onShowMemoryEvent(ShowMemoryEvent event){
+        Intent intent = new Intent(mainView.getAppCompatActivity(), MemoryActivity.class);
         mainView.getAppCompatActivity().startActivity(intent);
     }
 }

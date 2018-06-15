@@ -53,10 +53,10 @@ public class CarBingo implements ICarBingo {
     public List<ICarBingoTile> getCarBingoTiles() {
         return carBingoTiles;
     }
-
+    /*
     public void setCarBingoTiles(List<ICarBingoTile> carBingoTiles) {
         this.carBingoTiles = carBingoTiles;
-    }
+    }*/
 
     public boolean checkBingoStatus(){
         if (checkHorizontal()){

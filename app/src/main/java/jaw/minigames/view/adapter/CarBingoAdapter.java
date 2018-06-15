@@ -29,10 +29,6 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingoTile;
             return this.carBingo.getCarBingoTiles().size();
         }
 
-        public long getItemId(int position) {
-            return position;
-        }
-
         // create a new ImageView for each item referenced by the Adapter
         public CarBingoViewHolder onCreateViewHolder(ViewGroup parent, int position) {
             System.out.println("CarAdapter");

@@ -4,6 +4,9 @@ import jaw.minigames.model.minigamemodule.carbingogame.CarBingoFactory;
 import jaw.minigames.model.minigamemodule.carbingogame.ICarBingo;
 import jaw.minigames.model.minigamemodule.fourinarow.FourInARowFactory;
 import jaw.minigames.model.minigamemodule.fourinarow.IFourInARow;
+import jaw.minigames.model.minigamemodule.memory.IMemory;
+import jaw.minigames.model.minigamemodule.memory.Memory;
+import jaw.minigames.model.minigamemodule.memory.MemoryFactory;
 
 /**
  * Created by johan on 6/4/2017.
@@ -12,11 +15,20 @@ import jaw.minigames.model.minigamemodule.fourinarow.IFourInARow;
 public class MiniGameModule {
     private ICarBingo carBingo;
     private IFourInARow fourInARow;
+    private IMemory memory;
 
     public MiniGameModule(){
         carBingo = CarBingoFactory.getInstance().createCarBingo();
         fourInARow = FourInARowFactory.getInstance().createFourInARow();
+        memory = MemoryFactory.getInstance().createMemory();
+    }
 
+    public IMemory getMemory() {
+        return memory;
+    }
+
+    public void setMemory(IMemory memory) {
+        this.memory = memory;
     }
 
     public ICarBingo getCarBingo() {

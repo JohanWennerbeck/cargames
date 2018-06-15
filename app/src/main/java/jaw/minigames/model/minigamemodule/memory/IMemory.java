@@ -1,0 +1,13 @@
+package jaw.minigames.model.minigamemodule.memory;
+
+import java.util.List;
+
+/**
+ * Created by Johan 2018-06-15
+ */
+
+
+public interface IMemory {
+    List<IMemoryTile> getTiles();
+    void onMemoryTileTappedEvent(int i);
+}
