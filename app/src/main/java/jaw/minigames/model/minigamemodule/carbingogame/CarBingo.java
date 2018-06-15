@@ -111,6 +111,8 @@ public class CarBingo implements ICarBingo {
 
     public void onTileCheckedEvent(int type){
         this.carBingoTiles.get(type).toggleChecked();
+        System.out.println(carBingoTiles.get(type).getType());
+        System.out.println(type);
         this.checkBingoStatus();
     }
 }

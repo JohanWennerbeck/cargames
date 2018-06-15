@@ -73,7 +73,7 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingoTile;
                         if(carBingoTile.getChecked()){
                             button.setText("Check");
                         } else {
-                            button.setText(tileText[i]);
+                            button.setText(tileText[carBingoTile.getType()]);
                         }
                     }
                 });
@@ -89,7 +89,6 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingoTile;
                     //tileImage.setImageResource(R.drawable.cross);
                 }
             }
-
 
 
             private String[] tileText = {
