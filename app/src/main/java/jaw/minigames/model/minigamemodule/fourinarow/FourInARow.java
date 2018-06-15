@@ -38,37 +38,8 @@ public class FourInARow implements IFourInARow {
             }
         }
         this.tiles.get(rightTile).setColor(turn);
+        checkForVictory(rightTile);
         this.switchTurn(turn);
-        for (int k = 0; k < 7; k++)
-        System.out.print(tiles.get(k).getColor());
-
-        System.out.println(" ");
-
-        for (int k = 7; k < 14; k++)
-            System.out.print(tiles.get(k).getColor());
-
-        System.out.println(" ");
-
-        for (int k = 14; k < 21; k++)
-            System.out.print(tiles.get(k).getColor());
-
-        System.out.println(" ");
-
-        for (int k = 21; k < 28; k++)
-            System.out.print(tiles.get(k).getColor());
-
-        System.out.println(" ");
-
-        for (int k = 28; k < 35; k++)
-            System.out.print(tiles.get(k).getColor());
-
-        System.out.println(" ");
-
-        for (int k = 35; k < 42; k++)
-            System.out.print(tiles.get(k).getColor());
-
-        System.out.println(" ");
-
     }
 
     public void switchTurn(int tileColor){
@@ -76,6 +47,92 @@ public class FourInARow implements IFourInARow {
             this.turn = FourInARowTile.RED;
         } else {
             this.turn = FourInARowTile.BLUE;
+        }
+    }
+
+    public void checkForVictory(int tile){
+        checkVertical(tile);
+        checkHorizontal(tile);
+        checkDownDiagonal(tile);
+        checkUpDiagonal(tile);
+    }
+
+    private void checkUpDiagonal(int tile){
+        int difHorizontal = tile % 7;
+        int difVertical = 5- (int) Math.floor(tile/7);
+        int dif;
+        if ( difHorizontal < difVertical) {
+            dif = difHorizontal;
+        } else {
+            dif = difVertical;
+        }
+        for (int i = 0; i < dif; i++){
+            tile = tile +6;
+        }
+        int count = 0;
+        while (tile > 6 && tile %  7 != 6) {
+            if (this.tiles.get(tile).getColor() == this.tiles.get(tile-6).getColor() && this.tiles.get(tile).getColor() != FourInARowTile.BLANK) {
+                count++;
+                if(count==3){
+                    System.out.println("VICTORY");;
+                }
+            } else {
+                count = 0;
+            }
+            tile-=6;
+        }
+    }
+
+    private void checkDownDiagonal(int tile) {
+        int difHorizontal = tile % 7;
+        int difVertical = (int) Math.floor(tile/7);
+        int dif;
+        if ( difHorizontal < difVertical) {
+            dif = difHorizontal;
+        } else {
+            dif = difVertical;
+        }
+        for (int i = 0; i < dif; i++){
+            tile = tile - 8;
+        }
+        int count = 0;
+        while (tile < 35 && tile %  7 != 6) {
+            if (this.tiles.get(tile).getColor() == this.tiles.get(tile+8).getColor() && this.tiles.get(tile).getColor() != FourInARowTile.BLANK) {
+                count++;
+                if(count==3){
+                    System.out.println("VICTORY");;
+                }
+            } else {
+                count = 0;
+            }
+            tile+=8;
+        }
+    }
+
+    private void checkHorizontal(int tile){
+        int dif = tile % 7;
+        int tempTile = tile-dif;
+        int count = 0;
+        while (tempTile < tile - dif + 6) {
+            if (this.tiles.get(tempTile).getColor() == this.tiles.get(tempTile+1).getColor() && this.tiles.get(tempTile).getColor() != FourInARowTile.BLANK) {
+                count++;
+                if(count==3){
+                    System.out.println("VICTORY");;
+                }
+            } else {
+                count = 0;
+            }
+            tempTile++;
+        }
+    }
+
+    private void checkVertical(int tile) {
+        if (tile < 21) { //Check vertical
+            if (this.tiles.get(tile+7).getColor() == this.turn &&
+                    this.tiles.get(tile+14).getColor() == this.turn &&
+                    this.tiles.get(tile+21).getColor() == this.turn) {
+                System.out.println("WIIIN");
+            }
         }
     }
 }

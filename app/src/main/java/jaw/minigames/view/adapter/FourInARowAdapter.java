@@ -1,6 +1,8 @@
 package jaw.minigames.view.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
@@ -45,7 +49,6 @@ public class FourInARowAdapter extends RecyclerView.Adapter<FourInARowAdapter.Fo
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         FourInARowViewHolder fourInARowViewHolder;
-
         fourInARowView = inflater.inflate(R.layout.tile_res_simple, parent, false);
         fourInARowViewHolder = new FourInARowViewHolder(fourInARowView);
         return fourInARowViewHolder;
@@ -54,7 +57,7 @@ public class FourInARowAdapter extends RecyclerView.Adapter<FourInARowAdapter.Fo
     public void onBindViewHolder(FourInARowViewHolder holder, int position) {
         holder.fourInARowTile = fourInARow.getTiles().get(position);
         holder.i = position;
-        holder.setFourInARowTiles(position);
+        holder.setFourInARowTiles();
     }
 
     @Override
@@ -138,26 +141,37 @@ public class FourInARowAdapter extends RecyclerView.Adapter<FourInARowAdapter.Fo
         public FourInARowViewHolder(final View itemView) {
             super(itemView);
             button = (Button) itemView.findViewById(R.id.button);
-
+            EventBus.getDefault().register(this);
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view){
+                    System.out.println("On click");
+                    System.out.println(i);
                     EventBus.getDefault().post(new TileTappedEvent(i));
                     EventBus.getDefault().post(new UpdateFourInARowActivityEvent());
                    // EventBus.getDefault().post(new UpdateActivityEvent());
-                    /*for(int i = 0; i < 42; i++) {
-                        setFourInARowTiles(i);
-                    }*/
+
+                    setFourInARowTiles();
+
                 }
             });
         }
 
-        public void setFourInARowTiles(int i){
+        @Subscribe (threadMode = ThreadMode.MAIN)
+        public void onTileTappedEvent(TileTappedEvent event){
+            setFourInARowTiles();
+        }
+
+
+        public void setFourInARowTiles(){
             if(fourInARowTile.getColor()== FourInARowTile.RED){
-                button.setText("RED");
+                button.setBackgroundColor(Color.RED);
+                button.setText("");
             } else if (fourInARowTile.getColor()== FourInARowTile.BLUE) {
-                button.setText("BLUE");
+                button.setBackgroundColor(Color.BLUE);
+                button.setText("");
             } else {
-                button.setText("BLANK");
+                button.setBackgroundColor(Color.WHITE);
+                button.setText("O");
             }
         }
     }
