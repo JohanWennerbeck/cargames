@@ -8,5 +8,4 @@ import jaw.minigames.model.minigamemodule.fourinarow.IFourInARow;
 
 public interface IFourInARowAdapter {
     void refreshItems(IFourInARow fourInARow);
-    void updateFourInARow(IFourInARow fourInARow);
 }

@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements IMainView, Naviga
 
     @Override
     public void onBackPressed() {
+        System.out.println("OnBackPressed");
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements IMainView, Naviga
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        System.out.println("OnCreateOptionMenu");
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -77,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements IMainView, Naviga
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        System.out.println("OnOptionsItemSelected");
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -128,16 +131,17 @@ public class MainActivity extends AppCompatActivity implements IMainView, Naviga
 
     @Override
     public AppCompatActivity getAppCompatActivity() {
+        System.out.println("getAppCombatActivity");
         return this;
     }
 
     @Override
     public void setToolbar() {
-
+        System.out.println("setToolbar");
     }
 
     @Override
     public void setNavDrawer() {
-
+        System.out.println("SetNavDrawer");
     }
 }

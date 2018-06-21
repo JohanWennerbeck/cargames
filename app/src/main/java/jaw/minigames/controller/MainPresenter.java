@@ -12,6 +12,7 @@ import jaw.minigames.eventbus.ShowFourInARowEvent;
 import jaw.minigames.eventbus.ShowMemoryEvent;
 import jaw.minigames.eventbus.TileCheckedEvent;
 import jaw.minigames.eventbus.TileTappedEvent;
+import jaw.minigames.eventbus.MemoryTileTappedEvent;
 import jaw.minigames.model.Model;
 import jaw.minigames.view.activity.CarBingoActivity;
 import jaw.minigames.view.activity.FourInARowActivity;
@@ -60,6 +61,11 @@ class MainPresenter extends BasePresenter implements IPresenter{
     @Subscribe (threadMode = ThreadMode.MAIN)
     public void onTileTappedEveent(TileTappedEvent event){
         this.model.getMiniGameModule().getFourInARow().onTileTappedEvent(event.getNumber());
+    }
+
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void onMemoryTileTappedEveent(MemoryTileTappedEvent event) throws InterruptedException {
+        this.model.getMiniGameModule().getMemory().onMemoryTileTappedEvent(event.getNumber());
     }
 
     @Subscribe (threadMode = ThreadMode.MAIN)

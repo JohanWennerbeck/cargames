@@ -42,10 +42,4 @@ public class FourInARowPresenter implements IPresenter {
     public void injectModel(Model model) {
         this.model = model;
     }
-
-    @Subscribe (threadMode = ThreadMode.MAIN)
-    public void onRequestForInARowEvent(RequestFourInARowEvent event){
-        event.adapter.updateFourInARow(this.model.getMiniGameModule().getFourInARow());
-    }
-
 }

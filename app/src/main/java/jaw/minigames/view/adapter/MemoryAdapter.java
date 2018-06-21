@@ -7,13 +7,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.Random;
 
 import jaw.minigames.R;
 import jaw.minigames.eventbus.MemoryTileTappedEvent;
 import jaw.minigames.model.minigamemodule.memory.IMemory;
 import jaw.minigames.model.minigamemodule.memory.IMemoryTile;
+import jaw.minigames.model.minigamemodule.memory.Memory;
 import jaw.minigames.model.minigamemodule.memory.MemoryTile;
 
 public class MemoryAdapter extends RecyclerView.Adapter<MemoryAdapter.MemoryViewHolder> implements IMemoryAdapter {
@@ -27,8 +33,11 @@ public class MemoryAdapter extends RecyclerView.Adapter<MemoryAdapter.MemoryView
         return this.memory.getTiles().size();
     }
 
+
+
     @Override
     public MemoryAdapter.MemoryViewHolder onCreateViewHolder(ViewGroup parent, int position) {
+        System.out.println("Den är här");
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View memoryView;
@@ -58,24 +67,28 @@ public class MemoryAdapter extends RecyclerView.Adapter<MemoryAdapter.MemoryView
         public MemoryViewHolder(final View itemView) {
             super(itemView);
             button = (Button) itemView.findViewById(R.id.button);
+            EventBus.getDefault().register(this);
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
                     EventBus.getDefault().post(new MemoryTileTappedEvent(i));
-                    if (memoryTile.getChecked()) {
-                        button.setText("!!");
-                    } else {
-                        button.setText(tileText[memoryTile.getType()]);
-                    }
+
+                    setMemoryTiles();
                 }
             });
             //tileImage = (ImageView) itemView.findViewById(R.id.imageButton);
         }
 
-        public void setMemoryTiles() {
-            button.setText(tileText[memoryTile.getType()]);
+        @Subscribe(threadMode = ThreadMode.MAIN)
+        public void onMemoryTileTappedEvent(MemoryTileTappedEvent event){
+            setMemoryTiles();
+        }
 
+        public void setMemoryTiles() {
             if (this.memoryTile.getChecked()) {
+                button.setText(tileText[memoryTile.getType()]);
                 //tileImage.setImageResource(R.drawable.cross);
+            } else {
+                button.setText("unknown");
             }
         }
 

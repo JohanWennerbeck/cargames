@@ -3,7 +3,6 @@ package jaw.minigames.view.activity;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,10 +10,14 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import jaw.minigames.R;
+import jaw.minigames.eventbus.MemoryScoreUpdateEvent;
 import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
 import jaw.minigames.view.adapter.IMemoryAdapter;
@@ -23,23 +26,25 @@ import jaw.minigames.view.adapter.MemoryAdapter;
 public class MemoryActivity extends AppCompatActivity implements IMemoryView {
     private RecyclerView gridview;
     private Toolbar toolbar;
+    private TextView scoreView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.memory_activity);
-
+        scoreView = (TextView) findViewById(R.id.scoreTextView);
         gridview = (RecyclerView) findViewById(R.id.memoryGrid);
 
         gridview.setLayoutManager(new GridLayoutManager(this, 4));
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
+        EventBus.getDefault().register(this);
         EventBus.getDefault().post(new RequestPresenterEvent(this));
         EventBus.getDefault().post(new OnCreateEvent(this));
     }
+
 
 
     @Override
@@ -111,5 +116,12 @@ public class MemoryActivity extends AppCompatActivity implements IMemoryView {
     @Override
     public void setToolbar() {
 
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMemoryScoreUpdateEvent(MemoryScoreUpdateEvent event){
+        this.scoreView.setText("The score is : " + event.getPlayerOneScore()
+                + " - " +
+                event.getPlayerTwoScore());
     }
 }

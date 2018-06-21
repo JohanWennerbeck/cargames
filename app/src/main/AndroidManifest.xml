@@ -12,6 +12,7 @@
         <activity
             android:name=".view.activity.MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,17 +21,20 @@
             </intent-filter>
         </activity>
         <activity
-        android:name=".view.activity.FourInARowActivity"
-        android:screenOrientation="portrait"
-        android:parentActivityName=".view.activity.MainActivity" />
+            android:name=".view.activity.FourInARowActivity"
+            android:label="Four in a row"
+            android:parentActivityName=".view.activity.MainActivity"
+            android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".view.activity.CarBingoActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".view.activity.MainActivity" />
+            android:label="Car bingo"
+            android:parentActivityName=".view.activity.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.MemoryActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".view.activity.MainActivity" />
+            android:label="Memory"
+            android:parentActivityName=".view.activity.MainActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

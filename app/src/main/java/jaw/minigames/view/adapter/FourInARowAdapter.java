@@ -61,77 +61,10 @@ public class FourInARowAdapter extends RecyclerView.Adapter<FourInARowAdapter.Fo
     }
 
     @Override
-    public void onBindViewHolder(FourInARowViewHolder viewHolder, int position, List<Object> payloads) {
-        if (payloads.isEmpty()) {
-            // Perform a full update
-            onBindViewHolder(viewHolder, position);
-        } else {
-            // Perform a partial update
-            for (Object payload : payloads) {
-                if (payload instanceof FourInARowTile) {
-                    bindFourInARowPayload((FourInARowTile) payload);
-                }
-            }
-        }
-    }
-
-    public void bindFourInARowPayload(FourInARowTile payload){
-
-    }
-
-
-    @Override
     public void refreshItems(IFourInARow fourInARow) {
         EventBus.getDefault().post(new RequestFourInARowEvent(this));
     }
 
-    public void updateFourInARow(IFourInARow newFourInARow){
-        notifyItemRangeChanged(0, 41, newFourInARow.getTiles());
-
-
-        /*for (int i = 0; i < 42; i++) {
-            new FourInARowViewHolder(fourInARowView).setFourInARowTiles(i);
-        }
-        final FourInARowDiffCallback diffCallback = new FourInARowDiffCallback(this.fourInARow, newFourInARow);
-        final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
-
-        this.fourInARow.getTiles().clear();
-        this.fourInARow.getTiles().addAll(newFourInARow.getTiles());
-        diffResult.dispatchUpdatesTo(this);
-    }
-
-    private class FourInARowDiffCallback extends DiffUtil.Callback {
-        private final IFourInARow oldFourInARow;
-        private final IFourInARow newFourInARow;
-
-        public FourInARowDiffCallback(IFourInARow oldFourInARow, IFourInARow newFourInARow) {
-            this.oldFourInARow = oldFourInARow;
-            this.newFourInARow = newFourInARow;
-        }
-
-        @Override
-        public int getOldListSize() {
-            return oldFourInARow.getTiles().size();
-        }
-
-        @Override
-        public int getNewListSize() {
-            return oldFourInARow.getTiles().size();
-        }
-
-        @Override
-        public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            return false;
-        }
-
-        @Override
-        public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-            final IFourInARowTile oldTile = oldFourInARow.getTiles().get(oldItemPosition);
-            final IFourInARowTile newTile = newFourInARow.getTiles().get(newItemPosition);
-
-            return oldTile.getColor() == (newTile.getColor());
-        }*/
-    }
 
     public static class FourInARowViewHolder extends RecyclerView.ViewHolder {
         public IFourInARowTile fourInARowTile;
@@ -147,8 +80,6 @@ public class FourInARowAdapter extends RecyclerView.Adapter<FourInARowAdapter.Fo
                     System.out.println("On click");
                     System.out.println(i);
                     EventBus.getDefault().post(new TileTappedEvent(i));
-                    EventBus.getDefault().post(new UpdateFourInARowActivityEvent());
-                   // EventBus.getDefault().post(new UpdateActivityEvent());
 
                     setFourInARowTiles();
 
