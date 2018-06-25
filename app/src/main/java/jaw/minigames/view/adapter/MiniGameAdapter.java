@@ -7,9 +7,11 @@ import android.content.Context;
  */
 
 public class MiniGameAdapter implements IMiniGameAdapter {
-    Context context ;
+    Context mContext ;
 
     public MiniGameAdapter(Context context){
-        this.context = context;
+        this.mContext = context;
     }
+
+
 }

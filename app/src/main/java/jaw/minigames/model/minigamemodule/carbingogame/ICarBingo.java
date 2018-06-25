@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface ICarBingo {
     List<ICarBingoTile> getCarBingoTiles();
+    void setCarBingoTiles(List<ICarBingoTile> carBingoTiles);
 
     boolean checkBingoStatus();
 

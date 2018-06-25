@@ -20,6 +20,11 @@ import jaw.minigames.R;
 import jaw.minigames.eventbus.MemoryNewGameEvent;
 import jaw.minigames.eventbus.MemoryScoreUpdateEvent;
 import jaw.minigames.eventbus.OnCreateEvent;
+import jaw.minigames.eventbus.OnDestroyEvent;
+import jaw.minigames.eventbus.OnPauseEvent;
+import jaw.minigames.eventbus.OnResumeEvent;
+import jaw.minigames.eventbus.OnStartEvent;
+import jaw.minigames.eventbus.OnStopEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
 import jaw.minigames.eventbus.ShowMemoryEvent;
 import jaw.minigames.view.adapter.IMemoryAdapter;
@@ -45,6 +50,41 @@ public class MemoryActivity extends AppCompatActivity implements IMemoryView {
         EventBus.getDefault().register(this);
         EventBus.getDefault().post(new RequestPresenterEvent(this));
         EventBus.getDefault().post(new OnCreateEvent(this));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().post(new OnStartEvent(this));
+    }
+
+
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().post(new OnStopEvent(this));
+        super.onStop();
+    }
+
+
+    @Override
+    protected void onPause() {
+        EventBus.getDefault().post(new OnPauseEvent(this));
+        super.onPause();
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        EventBus.getDefault().post(new OnResumeEvent(this));
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        System.out.println("MEMORY DESTROY");
+        EventBus.getDefault().post(new OnDestroyEvent(this));
+        super.onDestroy();
     }
 
 

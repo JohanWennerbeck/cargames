@@ -31,6 +31,8 @@ public class CarBingoTile implements ICarBingoTile {
         checked = false;
     }
 
+    public CarBingoTile(){}
+
 
     @Override
     public int getType() {

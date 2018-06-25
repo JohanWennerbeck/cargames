@@ -5,7 +5,15 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import jaw.minigames.eventbus.OnCreateEvent;
+import jaw.minigames.eventbus.OnDestroyEvent;
+import jaw.minigames.eventbus.OnPauseEvent;
+import jaw.minigames.eventbus.OnResumeEvent;
+import jaw.minigames.eventbus.OnStartEvent;
+import jaw.minigames.eventbus.OnStopEvent;
+import jaw.minigames.eventbus.RemovePresenterEvent;
+import jaw.minigames.eventbus.SaveGameEvent;
 import jaw.minigames.model.Model;
+import jaw.minigames.view.activity.ICarBingoView;
 import jaw.minigames.view.activity.IMemoryView;
 import jaw.minigames.view.adapter.IMemoryAdapter;
 import jaw.minigames.view.adapter.MemoryAdapter;
@@ -32,6 +40,51 @@ public class MemoryPresenter implements IPresenter {
     }
 
     @Override
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onResume(OnResumeEvent event) {
+
+    }
+
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void onPause(OnPauseEvent event) {
+        if(event.object instanceof ICarBingoView)
+            EventBus.getDefault().post(new SaveGameEvent());
+    }
+
+    @Override
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onStart(OnStartEvent event) {
+
+    }
+
+    @Override
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onDestroy(OnDestroyEvent event) {
+
+        if (event.object == this.memoryView) {
+            System.out.println("Memory onDESTROY");
+            EventBus.getDefault().unregister(this);
+            collectDeadPresenter();
+        }
+    }
+
+    private void collectDeadPresenter() {
+        detachView();
+        EventBus.getDefault().post(new RemovePresenterEvent(this));
+    }
+
+    private void detachView() {
+        this.memoryView = null;
+    }
+
+    @Override
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onStop(OnStopEvent event) {
+
+    }
+
+    @Override
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void injectModel(Model model) {
         this.model = model;
     }

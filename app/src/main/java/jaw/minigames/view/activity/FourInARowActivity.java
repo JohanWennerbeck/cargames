@@ -18,6 +18,11 @@ import org.greenrobot.eventbus.ThreadMode;
 import jaw.minigames.R;
 import jaw.minigames.eventbus.FourInARowNewGameEvent;
 import jaw.minigames.eventbus.OnCreateEvent;
+import jaw.minigames.eventbus.OnDestroyEvent;
+import jaw.minigames.eventbus.OnPauseEvent;
+import jaw.minigames.eventbus.OnResumeEvent;
+import jaw.minigames.eventbus.OnStartEvent;
+import jaw.minigames.eventbus.OnStopEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
 import jaw.minigames.eventbus.UpdateFourInARowActivityEvent;
 import jaw.minigames.model.minigamemodule.fourinarow.IFourInARow;
@@ -53,7 +58,6 @@ public class FourInARowActivity extends AppCompatActivity implements IFourInARow
         EventBus.getDefault().post(new RequestPresenterEvent(this));
         EventBus.getDefault().post(new OnCreateEvent(this));
         EventBus.getDefault().register(this);
-        System.out.println("Activity");
         /*gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
@@ -62,6 +66,41 @@ public class FourInARowActivity extends AppCompatActivity implements IFourInARow
                 EventBus.getDefault().post(new TileCheckedEvent(position));
             }
         });*/
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().post(new OnStartEvent(this));
+    }
+
+
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().post(new OnStopEvent(this));
+        super.onStop();
+    }
+
+
+    @Override
+    protected void onPause() {
+        EventBus.getDefault().post(new OnPauseEvent(this));
+        super.onPause();
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        EventBus.getDefault().post(new OnResumeEvent(this));
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        System.out.println("FourINARow DESTROY");
+        EventBus.getDefault().post(new OnDestroyEvent(this));
+        super.onDestroy();
     }
 
     public RecyclerView getGridView(){

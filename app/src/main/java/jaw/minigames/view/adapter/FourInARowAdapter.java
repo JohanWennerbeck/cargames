@@ -44,7 +44,6 @@ public class FourInARowAdapter extends RecyclerView.Adapter<FourInARowAdapter.Fo
 
     // create a new ImageView for each item referenced by the Adapter
     public FourInARowViewHolder onCreateViewHolder(ViewGroup parent, int position) {
-        System.out.println("Adapter");
         View fourInARowView;
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -77,8 +76,6 @@ public class FourInARowAdapter extends RecyclerView.Adapter<FourInARowAdapter.Fo
             EventBus.getDefault().register(this);
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view){
-                    System.out.println("On click");
-                    System.out.println(i);
                     EventBus.getDefault().post(new TileTappedEvent(i));
 
                     setFourInARowTiles();

@@ -1,7 +1,10 @@
 package jaw.minigames.model.minigamemodule;
 
+import java.util.List;
+
 import jaw.minigames.model.minigamemodule.carbingogame.CarBingoFactory;
 import jaw.minigames.model.minigamemodule.carbingogame.ICarBingo;
+import jaw.minigames.model.minigamemodule.carbingogame.ICarBingoTile;
 import jaw.minigames.model.minigamemodule.fourinarow.FourInARowFactory;
 import jaw.minigames.model.minigamemodule.fourinarow.IFourInARow;
 import jaw.minigames.model.minigamemodule.memory.IMemory;
@@ -35,8 +38,8 @@ public class MiniGameModule {
         return carBingo;
     }
 
-    public void setCarBingo(ICarBingo carBingo) {
-        this.carBingo = carBingo;
+    public void setCarBingo(List<ICarBingoTile> carBingoTiles) {
+        this.carBingo.setCarBingoTiles(carBingoTiles);
     }
 
     public IFourInARow getFourInARow(){

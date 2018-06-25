@@ -16,6 +16,11 @@ import org.greenrobot.eventbus.EventBus;
 import jaw.minigames.R;
 import jaw.minigames.eventbus.CarBingoNewGameEvent;
 import jaw.minigames.eventbus.OnCreateEvent;
+import jaw.minigames.eventbus.OnDestroyEvent;
+import jaw.minigames.eventbus.OnPauseEvent;
+import jaw.minigames.eventbus.OnResumeEvent;
+import jaw.minigames.eventbus.OnStartEvent;
+import jaw.minigames.eventbus.OnStopEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
 import jaw.minigames.view.adapter.CarBingoAdapter;
 import jaw.minigames.view.adapter.ICarBingoAdapter;
@@ -47,7 +52,6 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
 
         EventBus.getDefault().post(new RequestPresenterEvent(this));
         EventBus.getDefault().post(new OnCreateEvent(this));
-        System.out.println("CARACT");
         /*gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
@@ -56,6 +60,41 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
                 EventBus.getDefault().post(new TileCheckedEvent(position));
             }
         });*/
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().post(new OnStartEvent(this));
+    }
+
+
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().post(new OnStopEvent(this));
+        super.onStop();
+    }
+
+
+    @Override
+    protected void onPause() {
+        EventBus.getDefault().post(new OnPauseEvent(this));
+        super.onPause();
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        EventBus.getDefault().post(new OnResumeEvent(this));
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        System.out.println("CAR ACTIVITY DESTROY");
+        EventBus.getDefault().post(new OnDestroyEvent(this));
+        super.onDestroy();
     }
 
     @Override
@@ -122,7 +161,6 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
 
     @Override
     public void setCarBingoAdapter(CarBingoAdapter adapter) {
-        System.out.println("Inne i Set Car adapter");
         gridview.setAdapter(adapter);
     }
 

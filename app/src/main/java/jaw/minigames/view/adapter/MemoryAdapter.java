@@ -37,7 +37,6 @@ public class MemoryAdapter extends RecyclerView.Adapter<MemoryAdapter.MemoryView
 
     @Override
     public MemoryAdapter.MemoryViewHolder onCreateViewHolder(ViewGroup parent, int position) {
-        System.out.println("Den är här");
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View memoryView;

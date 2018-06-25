@@ -31,7 +31,6 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingoTile;
 
         // create a new ImageView for each item referenced by the Adapter
         public CarBingoViewHolder onCreateViewHolder(ViewGroup parent, int position) {
-            System.out.println("CarAdapter");
             Context context = parent.getContext();
             LayoutInflater inflater = LayoutInflater.from(context);
             View carBingoView;
@@ -79,7 +78,11 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingoTile;
             public void setCarBingoTiles(){
                 //tileImage.setImageResource(mThumbIds[carBingoTile.getType()]);
                 //button.setText("Cow");
-                button.setText(tileText[carBingoTile.getType()]);
+                if(carBingoTile.getChecked()){
+                    button.setText("Check");
+                } else {
+                    button.setText(tileText[carBingoTile.getType()]);
+                }
 
                 if(this.carBingoTile.getChecked()){
                     //tileImage.setImageResource(R.drawable.cross);
