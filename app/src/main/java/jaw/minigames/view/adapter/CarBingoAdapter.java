@@ -102,7 +102,7 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingoTile;
                     "Sheep",
                     "Tractor",
                     "Train",
-                    "Windmiller",
+                    "Windmill",
                     "Wind turbine",
             };
 

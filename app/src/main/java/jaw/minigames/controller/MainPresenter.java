@@ -6,6 +6,9 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import jaw.minigames.eventbus.CarBingoNewGameEvent;
+import jaw.minigames.eventbus.FourInARowNewGameEvent;
+import jaw.minigames.eventbus.MemoryNewGameEvent;
 import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.eventbus.ShowCarBingoEvent;
 import jaw.minigames.eventbus.ShowFourInARowEvent;
@@ -64,8 +67,26 @@ class MainPresenter extends BasePresenter implements IPresenter{
     }
 
     @Subscribe (threadMode = ThreadMode.MAIN)
-    public void onMemoryTileTappedEveent(MemoryTileTappedEvent event) throws InterruptedException {
+    public void onMemoryTileTappedEveent(MemoryTileTappedEvent event) {
         this.model.getMiniGameModule().getMemory().onMemoryTileTappedEvent(event.getNumber());
+    }
+
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void onCarBingoNewGameEvent (CarBingoNewGameEvent event) {
+        model.getMiniGameModule().getCarBingo().newGame();
+        EventBus.getDefault().post(new ShowCarBingoEvent());
+    }
+
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void onFourInARowGameEvent (FourInARowNewGameEvent event) {
+        model.getMiniGameModule().getFourInARow().newGame();
+        EventBus.getDefault().post(new ShowFourInARowEvent());
+    }
+
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void onMemoryNewGameEvent (MemoryNewGameEvent event) {
+        model.getMiniGameModule().getMemory().newGame();
+        EventBus.getDefault().post(new ShowMemoryEvent());
     }
 
     @Subscribe (threadMode = ThreadMode.MAIN)

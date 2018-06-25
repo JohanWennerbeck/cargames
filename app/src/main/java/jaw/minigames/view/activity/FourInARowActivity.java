@@ -16,6 +16,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import jaw.minigames.R;
+import jaw.minigames.eventbus.FourInARowNewGameEvent;
 import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
 import jaw.minigames.eventbus.UpdateFourInARowActivityEvent;
@@ -75,7 +76,7 @@ public class FourInARowActivity extends AppCompatActivity implements IFourInARow
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.game_main, menu);
         return true;
     }
 
@@ -89,6 +90,8 @@ public class FourInARowActivity extends AppCompatActivity implements IFourInARow
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.new_game) {
+            EventBus.getDefault().post(new FourInARowNewGameEvent());
         }
 
         return super.onOptionsItemSelected(item);

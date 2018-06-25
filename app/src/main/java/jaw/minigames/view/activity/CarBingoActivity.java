@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import org.greenrobot.eventbus.EventBus;
 
 import jaw.minigames.R;
+import jaw.minigames.eventbus.CarBingoNewGameEvent;
 import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
 import jaw.minigames.view.adapter.CarBingoAdapter;
@@ -65,7 +66,7 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.game_main, menu);
         return true;
     }
 
@@ -79,6 +80,8 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.new_game) {
+            EventBus.getDefault().post(new CarBingoNewGameEvent());
         }
 
         return super.onOptionsItemSelected(item);

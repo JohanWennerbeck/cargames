@@ -33,7 +33,7 @@ public class CarBingo implements ICarBingo {
                 CarBingoTile.S_SHEEP,
                 CarBingoTile.S_TRACTOR,
                 CarBingoTile.S_TRAIN,
-                CarBingoTile.S_WINDMILLER,
+                CarBingoTile.S_WINDMILL,
                 CarBingoTile.S_WINDTURBIN
         };
         shuffle(type);
@@ -114,5 +114,10 @@ public class CarBingo implements ICarBingo {
         System.out.println(carBingoTiles.get(type).getType());
         System.out.println(type);
         this.checkBingoStatus();
+    }
+
+    @Override
+    public void newGame() {
+        this.initCarBingoTiles();
     }
 }

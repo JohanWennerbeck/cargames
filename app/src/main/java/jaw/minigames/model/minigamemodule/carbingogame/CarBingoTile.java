@@ -12,7 +12,7 @@ public class CarBingoTile implements ICarBingoTile {
     public static final int S_AMBULANCE = 3;
     public static final int S_TRACTOR = 4;
     public static final int S_WINDTURBIN = 5;
-    public static final int S_WINDMILLER = 6;
+    public static final int S_WINDMILL = 6;
     public static final int S_AIRPLANE = 7;
     public static final int S_CHURCH = 8;
     public static final int S_FLAG = 9;

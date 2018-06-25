@@ -9,4 +9,5 @@ import java.util.List;
 public interface IFourInARow {
     List<IFourInARowTile> getTiles();
     void onTileTappedEvent(int i);
+    void newGame();
 }

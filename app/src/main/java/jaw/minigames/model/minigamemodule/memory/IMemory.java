@@ -9,5 +9,6 @@ import java.util.List;
 
 public interface IMemory {
     List<IMemoryTile> getTiles();
-    void onMemoryTileTappedEvent(int i) throws InterruptedException;
+    void onMemoryTileTappedEvent(int i);
+    void newGame();
 }

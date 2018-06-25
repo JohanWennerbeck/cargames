@@ -11,10 +11,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import jaw.minigames.R;
 import jaw.minigames.controller.IPresenterFactory;
 import jaw.minigames.controller.PresenterFactory;
+import jaw.minigames.eventbus.MemoryNewGameEvent;
 import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
 import jaw.minigames.eventbus.ShowCarBingoEvent;
@@ -50,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements IMainView, Naviga
             EventBus.getDefault().post(new UpdateContextReferenceEvent(this));
         }
         attachPresenter();
-
         EventBus.getDefault().post(new OnCreateEvent(this));
 
     }

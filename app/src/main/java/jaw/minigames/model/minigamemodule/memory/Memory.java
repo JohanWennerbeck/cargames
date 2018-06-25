@@ -194,4 +194,8 @@ public class Memory implements IMemory {
             return player;
         }
     }
+
+    public void newGame () {
+        initMemory();
+    }
 }

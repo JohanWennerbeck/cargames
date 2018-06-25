@@ -42,6 +42,11 @@ public class FourInARow implements IFourInARow {
         this.switchTurn(turn);
     }
 
+    @Override
+    public void newGame() {
+        this.initFourInARow();
+    }
+
     public void switchTurn(int tileColor){
         if (tileColor == FourInARowTile.BLUE){
             this.turn = FourInARowTile.RED;
