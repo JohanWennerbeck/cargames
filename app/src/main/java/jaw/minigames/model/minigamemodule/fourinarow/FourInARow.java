@@ -47,6 +47,11 @@ public class FourInARow implements IFourInARow {
         this.initFourInARow();
     }
 
+    @Override
+    public void setTiles(List<IFourInARowTile> fourInARowTiles) {
+        this.tiles = fourInARowTiles;
+    }
+
     public void switchTurn(int tileColor){
         if (tileColor == FourInARowTile.BLUE){
             this.turn = FourInARowTile.RED;

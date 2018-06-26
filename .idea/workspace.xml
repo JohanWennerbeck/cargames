@@ -11,38 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03d0c853-a58a-45b2-ab39-b920baf183b2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/eventbus/OnDestroyEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/eventbus/OnPauseEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/eventbus/OnResumeEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/eventbus/OnStartEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/eventbus/OnStopEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/eventbus/SaveGameEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/CarBingoConverter.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/util/IConverter.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/util/IListConverter.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/util/StorageUtil.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/FourInARowConverter.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/MemoryConverter.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/CarBingoPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/CarBingoPresenter.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/DelegatingPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/DelegatingPresenter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/FourInARowPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/FourInARowPresenter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/IPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/IPresenter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/MainPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/MainPresenter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/MemoryPresenter.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/MemoryPresenter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/PresenterFactory.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/PresenterFactory.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/MiniGameModule.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/MiniGameModule.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/carbingogame/CarBingo.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/carbingogame/CarBingo.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/carbingogame/CarBingoTile.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/carbingogame/CarBingoTile.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/carbingogame/ICarBingo.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/carbingogame/ICarBingo.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/activity/CarBingoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/activity/CarBingoActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/activity/FourInARowActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/activity/FourInARowActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/activity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/activity/MainActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/activity/MemoryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/activity/MemoryActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/adapter/CarBingoAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/adapter/CarBingoAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/adapter/FourInARowAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/adapter/FourInARowAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/adapter/MemoryAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/adapter/MemoryAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/adapter/MiniGameAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/adapter/MiniGameAdapter.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/FourInARow.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/FourInARow.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/FourInARowTile.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/FourInARowTile.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/IFourInARow.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/IFourInARow.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/IMemory.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/IMemory.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/Memory.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/Memory.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/MemoryTile.java" afterPath="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/MemoryTile.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,123 +44,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/activity/MainActivity.java">
+      <file leaf-file-name="CarBingoConverter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/CarBingoConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="175" column="47" lean-forward="false" selection-start-line="175" selection-start-column="47" selection-end-line="175" selection-end-column="47" />
-              <folding>
-                <element signature="method#onBackPressed#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onNavigationItemSelected#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#5485#5486#0" expanded="true" />
-                <element signature="e#5552#5553#0" expanded="true" />
-                <element signature="e#5591#5592#0" expanded="true" />
-                <element signature="e#5660#5661#0" expanded="true" />
-                <element signature="e#5786#5787#0" expanded="true" />
-                <element signature="e#5861#5862#0" expanded="true" />
-                <element signature="e#6055#6056#0" expanded="true" />
-                <element signature="e#6103#6104#0" expanded="true" />
-                <element signature="e#6151#6152#0" expanded="true" />
-                <element signature="e#6201#6202#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FourInARowActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/activity/FourInARowActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="57" column="47" lean-forward="false" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestPresenterEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/eventbus/RequestPresenterEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-              <folding>
-                <element signature="e#263#264#0" expanded="true" />
-                <element signature="e#295#296#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainPresenter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/MainPresenter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="172" column="39" lean-forward="false" selection-start-line="172" selection-start-column="39" selection-end-line="172" selection-end-column="39" />
-              <folding>
-                <element signature="e#3437#3438#0" expanded="true" />
-                <element signature="e#3471#3472#0" expanded="true" />
-                <element signature="e#6137#6138#0" expanded="true" />
-                <element signature="e#6173#6174#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CarBingoAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/adapter/CarBingoAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-427">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CarBingoPresenter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/CarBingoPresenter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="66" column="53" lean-forward="false" selection-start-line="66" selection-start-column="53" selection-end-line="66" selection-end-column="53" />
-              <folding>
-                <element signature="e#2409#2410#0" expanded="true" />
-                <element signature="e#2449#2450#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FourInARowPresenter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/FourInARowPresenter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="67" column="53" lean-forward="false" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="53" />
-              <folding>
-                <element signature="e#2587#2588#0" expanded="true" />
-                <element signature="e#2629#2630#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MemoryPresenter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/MemoryPresenter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="64" column="51" lean-forward="false" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
-              <folding>
-                <element signature="e#2369#2370#0" expanded="true" />
-                <element signature="e#2407#2408#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MemoryActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/activity/MemoryActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="84" column="34" lean-forward="false" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
+            <state relative-caret-position="231">
+              <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -190,12 +57,9 @@
       <file leaf-file-name="DelegatingPresenter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/DelegatingPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="73" column="9" lean-forward="false" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
-              <folding>
-                <element signature="e#2641#2642#0" expanded="true" />
-                <element signature="e#2671#2672#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="560">
+              <caret line="158" column="64" lean-forward="false" selection-start-line="158" selection-start-column="64" selection-end-line="158" selection-end-column="64" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -2238,11 +2102,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/eventbus/MemoryTileTappedEvent.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/IMemoryTile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/MemoryFactory.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/IMemoryFactory.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/MemoryTile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/adapter/IMemoryAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/IPresenterFactory.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/adapter/IFourInARowAdapter.java" />
@@ -2256,17 +2116,12 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/game_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/eventbus/MemoryNewGame.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/IMemory.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/Memory.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/IFourInARow.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/FourInARow.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/util/StorageUtil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/util/IConverter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/util/IListConverter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/carbingogame/CarBingoTile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/CarBingoConverter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/MiniGameModule.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/carbingogame/CarBingo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/carbingogame/ICarBingo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/eventbus/OnDestroyEvent.java" />
@@ -2288,6 +2143,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/MemoryPresenter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/activity/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/view/activity/FourInARowActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/MemoryTile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/MemoryConverter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/FourInARowTile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/FourInARowConverter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/IMemory.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/Memory.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/MiniGameModule.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/IFourInARow.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/FourInARow.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/DelegatingPresenter.java" />
       </list>
     </option>
@@ -2374,6 +2238,15 @@
               <item name="minigames" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
               <item name="minigamemodule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="minigames" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="minigames" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="minigamemodule" type="462c0819:PsiDirectoryNode" />
+              <item name="fourinarow" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="minigames" type="1abcf292:AndroidViewProjectNode" />
@@ -2641,6 +2514,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32832617" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32832617" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2652,7 +2526,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32832617" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32725322" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2886266" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2886266" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2711,45 +2585,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/jaw/minigames/R.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="3235" column="28" lean-forward="false" selection-start-line="3235" selection-start-column="28" selection-end-line="3235" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -2797,14 +2632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/IMemory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/IPresenterFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -2825,29 +2652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="35" lean-forward="false" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/Memory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2862">
-          <caret line="198" column="21" lean-forward="false" selection-start-line="198" selection-start-column="21" selection-end-line="198" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/FourInARow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="46" column="30" lean-forward="false" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/IFourInARow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -2985,14 +2789,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/MiniGameModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="41" column="52" lean-forward="false" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/IPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -3022,18 +2818,6 @@
         <state relative-caret-position="273">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/CarBingoConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1116">
-          <caret line="62" column="27" lean-forward="false" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#539#540#0" expanded="false" />
-            <element signature="e#570#571#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3095,8 +2879,8 @@
         <state relative-caret-position="287">
           <caret line="64" column="51" lean-forward="false" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
           <folding>
-            <element signature="e#2369#2370#0" expanded="true" />
-            <element signature="e#2407#2408#0" expanded="true" />
+            <element signature="e#2369#2370#0" expanded="false" />
+            <element signature="e#2407#2408#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3118,16 +2902,16 @@
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
             <element signature="method#onNavigationItemSelected#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#5485#5486#0" expanded="true" />
-            <element signature="e#5552#5553#0" expanded="true" />
-            <element signature="e#5591#5592#0" expanded="true" />
-            <element signature="e#5660#5661#0" expanded="true" />
-            <element signature="e#5786#5787#0" expanded="true" />
-            <element signature="e#5861#5862#0" expanded="true" />
-            <element signature="e#6055#6056#0" expanded="true" />
-            <element signature="e#6103#6104#0" expanded="true" />
-            <element signature="e#6151#6152#0" expanded="true" />
-            <element signature="e#6201#6202#0" expanded="true" />
+            <element signature="e#5485#5486#0" expanded="false" />
+            <element signature="e#5552#5553#0" expanded="false" />
+            <element signature="e#5591#5592#0" expanded="false" />
+            <element signature="e#5660#5661#0" expanded="false" />
+            <element signature="e#5786#5787#0" expanded="false" />
+            <element signature="e#5861#5862#0" expanded="false" />
+            <element signature="e#6055#6056#0" expanded="false" />
+            <element signature="e#6103#6104#0" expanded="false" />
+            <element signature="e#6151#6152#0" expanded="false" />
+            <element signature="e#6201#6202#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3145,8 +2929,8 @@
         <state relative-caret-position="1071">
           <caret line="66" column="53" lean-forward="false" selection-start-line="66" selection-start-column="53" selection-end-line="66" selection-end-column="53" />
           <folding>
-            <element signature="e#2409#2410#0" expanded="true" />
-            <element signature="e#2449#2450#0" expanded="true" />
+            <element signature="e#2409#2410#0" expanded="false" />
+            <element signature="e#2449#2450#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3156,8 +2940,8 @@
         <state relative-caret-position="273">
           <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
           <folding>
-            <element signature="e#263#264#0" expanded="true" />
-            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#263#264#0" expanded="false" />
+            <element signature="e#295#296#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3167,8 +2951,8 @@
         <state relative-caret-position="245">
           <caret line="67" column="53" lean-forward="false" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="53" />
           <folding>
-            <element signature="e#2587#2588#0" expanded="true" />
-            <element signature="e#2629#2630#0" expanded="true" />
+            <element signature="e#2587#2588#0" expanded="false" />
+            <element signature="e#2629#2630#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3178,22 +2962,105 @@
         <state relative-caret-position="293">
           <caret line="172" column="39" lean-forward="false" selection-start-line="172" selection-start-column="39" selection-end-line="172" selection-end-column="39" />
           <folding>
-            <element signature="e#3437#3438#0" expanded="true" />
-            <element signature="e#3471#3472#0" expanded="true" />
-            <element signature="e#6137#6138#0" expanded="true" />
-            <element signature="e#6173#6174#0" expanded="true" />
+            <element signature="e#3437#3438#0" expanded="false" />
+            <element signature="e#3471#3472#0" expanded="false" />
+            <element signature="e#6137#6138#0" expanded="false" />
+            <element signature="e#6173#6174#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/MemoryTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="35" column="24" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/FourInARowConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/MemoryConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/FourInARowTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/CarBingoConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/IMemory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="49" lean-forward="false" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/memory/Memory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="203" column="39" lean-forward="false" selection-start-line="203" selection-start-column="39" selection-end-line="203" selection-end-column="39" />
+          <folding>
+            <element signature="e#5391#5392#0" expanded="false" />
+            <element signature="e#5437#5438#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/IFourInARow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="57" lean-forward="false" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/fourinarow/FourInARow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="51" column="37" lean-forward="false" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
+          <folding>
+            <element signature="e#1232#1233#0" expanded="false" />
+            <element signature="e#1276#1277#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/model/minigamemodule/MiniGameModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="50" column="67" lean-forward="false" selection-start-line="50" selection-start-column="67" selection-end-line="50" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jaw/minigames/controller/DelegatingPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="73" column="9" lean-forward="false" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="9" />
-          <folding>
-            <element signature="e#2641#2642#0" expanded="true" />
-            <element signature="e#2671#2672#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="560">
+          <caret line="158" column="64" lean-forward="false" selection-start-line="158" selection-start-column="64" selection-end-line="158" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>

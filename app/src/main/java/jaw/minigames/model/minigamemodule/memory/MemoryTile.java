@@ -33,6 +33,8 @@ public class MemoryTile implements IMemoryTile {
         checked = false;
     }
 
+    public MemoryTile(){}
+
     @Override
     public int getType() {
         return type;

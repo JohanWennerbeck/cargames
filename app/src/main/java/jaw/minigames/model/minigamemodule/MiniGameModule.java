@@ -7,7 +7,9 @@ import jaw.minigames.model.minigamemodule.carbingogame.ICarBingo;
 import jaw.minigames.model.minigamemodule.carbingogame.ICarBingoTile;
 import jaw.minigames.model.minigamemodule.fourinarow.FourInARowFactory;
 import jaw.minigames.model.minigamemodule.fourinarow.IFourInARow;
+import jaw.minigames.model.minigamemodule.fourinarow.IFourInARowTile;
 import jaw.minigames.model.minigamemodule.memory.IMemory;
+import jaw.minigames.model.minigamemodule.memory.IMemoryTile;
 import jaw.minigames.model.minigamemodule.memory.Memory;
 import jaw.minigames.model.minigamemodule.memory.MemoryFactory;
 
@@ -30,8 +32,8 @@ public class MiniGameModule {
         return memory;
     }
 
-    public void setMemory(IMemory memory) {
-        this.memory = memory;
+    public void setMemory(List<IMemoryTile> memoryTiles) {
+        this.memory.setTiles(memoryTiles);
     }
 
     public ICarBingo getCarBingo() {
@@ -46,7 +48,7 @@ public class MiniGameModule {
         return fourInARow;
     }
 
-    public void setFourInARow(IFourInARow fourInARow) {
-        this.fourInARow = fourInARow;
+    public void setFourInARow(List<IFourInARowTile> fourInARowTiles) {
+        this.fourInARow.setTiles(fourInARowTiles);
     }
 }

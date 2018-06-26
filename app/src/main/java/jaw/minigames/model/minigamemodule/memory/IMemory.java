@@ -11,4 +11,5 @@ public interface IMemory {
     List<IMemoryTile> getTiles();
     void onMemoryTileTappedEvent(int i);
     void newGame();
+    void setTiles(List<IMemoryTile> memoryTiles);
 }

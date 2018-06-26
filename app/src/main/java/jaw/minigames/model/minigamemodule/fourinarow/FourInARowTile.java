@@ -14,6 +14,7 @@ public class FourInARowTile implements IFourInARowTile {
     public FourInARowTile(int type){
         this.tileColor = type;
     }
+    public FourInARowTile(){}
 
 
     @Override

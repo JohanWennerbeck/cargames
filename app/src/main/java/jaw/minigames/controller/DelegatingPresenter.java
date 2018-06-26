@@ -18,8 +18,12 @@ import jaw.minigames.eventbus.RemovePresenterEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
 import jaw.minigames.eventbus.SaveGameEvent;
 import jaw.minigames.model.CarBingoConverter;
+import jaw.minigames.model.FourInARowConverter;
+import jaw.minigames.model.MemoryConverter;
 import jaw.minigames.model.Model;
 import jaw.minigames.model.minigamemodule.carbingogame.ICarBingoTile;
+import jaw.minigames.model.minigamemodule.fourinarow.IFourInARowTile;
+import jaw.minigames.model.minigamemodule.memory.IMemoryTile;
 import jaw.minigames.util.StorageUtil;
 import jaw.minigames.view.activity.ICarBingoView;
 import jaw.minigames.view.activity.IFourInARowView;
@@ -45,6 +49,8 @@ public class DelegatingPresenter {
 
         //Load all games
         loadCarBingo();
+        loadMemory();
+        loadFourInARow();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -56,16 +62,12 @@ public class DelegatingPresenter {
     public void onPresenterRequest(RequestPresenterEvent event) {
         IPresenter presenter = null;
         if (event.data == mContext) {
-            System.out.println("1");
             presenter = factory.createMainPresenter((IMainView) mContext, model);
         }else if (event.data instanceof IFourInARowView) {
-            System.out.println("2");
             presenter = factory.createFourInARowPresenter(model);
         } else if (event.data instanceof ICarBingoView) {
-            System.out.println("3");
             presenter = factory.createCarBingoPresenter(model);
         } else if (event.data instanceof IMemoryView) {
-            System.out.println("4");
             presenter = factory.createMemoryPresenter(model);
         }
         if(presenter != null) {
@@ -77,6 +79,8 @@ public class DelegatingPresenter {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onSaveGameEvent(SaveGameEvent event) {
         saveCarBingo();
+        saveMemory();
+        saveFourInARow();
     }
 
 
@@ -90,7 +94,6 @@ public class DelegatingPresenter {
         try {
             element = StorageUtil.load(mContext.getApplicationContext(), "CarBingo");
         } catch (IllegalStateException e) {
-            // TODO: 2017-05-11 Maybe notify user of corrupt data?
             StorageUtil.resetData(mContext.getApplicationContext(), "CarBingo");
 
         } catch (FileNotFoundException ignored) {
@@ -104,5 +107,55 @@ public class DelegatingPresenter {
         List<ICarBingoTile> carBingoTiles= CarBingoConverter.getInstance().toObject(array);
 
         model.getMiniGameModule().setCarBingo(carBingoTiles);
+    }
+
+    private void saveMemory(){
+        JsonArray array = MemoryConverter.getInstance().toJson(model.getMiniGameModule().getMemory().getTiles());
+        StorageUtil.save(mContext.getApplicationContext(), "Memory", array);
+    }
+
+    private void loadMemory(){
+        JsonElement element = null;
+        try {
+            element = StorageUtil.load(mContext.getApplicationContext(), "Memory");
+        } catch (IllegalStateException e) {
+            StorageUtil.resetData(mContext.getApplicationContext(), "Memory");
+
+        } catch (FileNotFoundException ignored) {
+        }
+
+        if (element == null || !element.isJsonArray()) {
+            return;
+        }
+        JsonArray array = element.getAsJsonArray();
+
+        List<IMemoryTile> memoryTiles= MemoryConverter.getInstance().toObject(array);
+
+        model.getMiniGameModule().setMemory(memoryTiles);
+    }
+
+    private void saveFourInARow(){
+        JsonArray array = FourInARowConverter.getInstance().toJson(model.getMiniGameModule().getFourInARow().getTiles());
+        StorageUtil.save(mContext.getApplicationContext(), "FourInARow", array);
+    }
+
+    private void loadFourInARow(){
+        JsonElement element = null;
+        try {
+            element = StorageUtil.load(mContext.getApplicationContext(), "FourInARow");
+        } catch (IllegalStateException e) {
+            StorageUtil.resetData(mContext.getApplicationContext(), "FourInARow");
+
+        } catch (FileNotFoundException ignored) {
+        }
+
+        if (element == null || !element.isJsonArray()) {
+            return;
+        }
+        JsonArray array = element.getAsJsonArray();
+
+        List<IFourInARowTile> fourInARowTiles= FourInARowConverter.getInstance().toObject(array);
+
+        model.getMiniGameModule().setFourInARow(fourInARowTiles );
     }
 }

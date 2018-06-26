@@ -10,4 +10,5 @@ public interface IFourInARow {
     List<IFourInARowTile> getTiles();
     void onTileTappedEvent(int i);
     void newGame();
+    void setTiles(List<IFourInARowTile> fourInARowTiles);
 }

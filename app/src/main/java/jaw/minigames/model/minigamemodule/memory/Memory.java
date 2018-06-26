@@ -198,4 +198,9 @@ public class Memory implements IMemory {
     public void newGame () {
         initMemory();
     }
+
+    @Override
+    public void setTiles(List<IMemoryTile> memoryTiles) {
+        this.memoryTiles = memoryTiles;
+    }
 }
