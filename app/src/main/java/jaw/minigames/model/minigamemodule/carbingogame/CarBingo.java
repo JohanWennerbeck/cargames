@@ -1,19 +1,21 @@
 package jaw.minigames.model.minigamemodule.carbingogame;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import jaw.minigames.eventbus.BingoVictoryEvent;
 
 /**
  * Created by johan on 6/4/2017.
  */
 
 public class CarBingo implements ICarBingo {
-    private boolean gotBingo;
     List<ICarBingoTile> carBingoTiles;
 
     public CarBingo(){
-        gotBingo = false;
         carBingoTiles = new ArrayList<>();
         initCarBingoTiles();
     }
@@ -60,22 +62,14 @@ public class CarBingo implements ICarBingo {
 
     public boolean checkBingoStatus(){
         if (checkHorizontal()){
-            setChecked(true);
-            System.out.println("WOOHOOOOO");
             return true;
         } else if (checkVertical()){
-            setChecked(true);
-            System.out.println("WWAAAAAAYY");
             return true;
         } else {
-            setChecked(false);
             return false;
         }
     }
 
-    public void setChecked(boolean bool){
-        this.gotBingo = bool;
-    }
 
     private boolean checkVertical() {
         for (int i = 0; i < this.carBingoTiles.size(); i += Math.sqrt(this.carBingoTiles.size())){
@@ -111,9 +105,9 @@ public class CarBingo implements ICarBingo {
 
     public void onTileCheckedEvent(int type){
         this.carBingoTiles.get(type).toggleChecked();
-        System.out.println(carBingoTiles.get(type).getType());
-        System.out.println(type);
-        this.checkBingoStatus();
+        if (this.checkBingoStatus()){
+            EventBus.getDefault().post(new BingoVictoryEvent());
+        };
     }
 
     @Override

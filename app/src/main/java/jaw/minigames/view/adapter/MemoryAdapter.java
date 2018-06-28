@@ -87,7 +87,7 @@ public class MemoryAdapter extends RecyclerView.Adapter<MemoryAdapter.MemoryView
                 button.setText(tileText[memoryTile.getType()]);
                 //tileImage.setImageResource(R.drawable.cross);
             } else {
-                button.setText("unknown");
+                button.setText("O");
             }
         }
 

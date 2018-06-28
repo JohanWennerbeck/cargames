@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import jaw.minigames.eventbus.MemoryNewGameEvent;
 import jaw.minigames.eventbus.MemoryScoreUpdateEvent;
+import jaw.minigames.eventbus.MemoryVictoryEvent;
 
 /**
  * Created by Johan 2018-06-15
@@ -91,7 +93,6 @@ public class Memory implements IMemory {
 
     public void onMemoryTileTappedEvent(int i) {
 
-        System.out.println("OJOJOJ");
         if(firstTry != -1 && correct == false && done == true){
             turnAroundWrongGuesses();
             if(turn == playerOne.getPlayer()) {
@@ -108,6 +109,7 @@ public class Memory implements IMemory {
         System.out.println("The score is :" + playerOne.getScore() + " - " + playerTwo.getScore());
         if (playerTwo.getScore() + playerOne.getScore() == this.memoryTiles.size()/2){
             System.out.println("We have a winner!!! ");
+            EventBus.getDefault().post(new MemoryVictoryEvent(playerOne.getScore(), playerTwo.getScore()));
         }
     }
 

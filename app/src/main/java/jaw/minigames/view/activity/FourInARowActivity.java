@@ -17,6 +17,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import jaw.minigames.R;
 import jaw.minigames.eventbus.FourInARowNewGameEvent;
+import jaw.minigames.eventbus.FourInARowVictoryEvent;
 import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.eventbus.OnDestroyEvent;
 import jaw.minigames.eventbus.OnPauseEvent;
@@ -28,6 +29,7 @@ import jaw.minigames.eventbus.UpdateFourInARowActivityEvent;
 import jaw.minigames.model.minigamemodule.fourinarow.IFourInARow;
 import jaw.minigames.view.adapter.FourInARowAdapter;
 import jaw.minigames.view.adapter.IFourInARowAdapter;
+import jaw.minigames.view.fragment.VictoryFragment;
 
 /**
  * Created by johan on 7/19/2017.
@@ -184,5 +186,15 @@ public class FourInARowActivity extends AppCompatActivity implements IFourInARow
 
     public void setFourInARow(IFourInARow fourInARow){
         this.fourInARow = fourInARow;
+    }
+
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void onFourInARowVictoryEvent(FourInARowVictoryEvent event){
+        VictoryFragment dialog = new VictoryFragment();
+        dialog.setGame(VictoryFragment.GAME_FOURINAROW);
+        if(event.getPlayer() == 1){
+            dialog.setPlayerOneScore(1);
+        }
+        dialog.show(getFragmentManager(), "FourInARowVictoryDialog");
     }
 }

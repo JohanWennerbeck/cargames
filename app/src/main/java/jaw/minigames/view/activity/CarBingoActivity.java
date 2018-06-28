@@ -12,8 +12,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import jaw.minigames.R;
+import jaw.minigames.eventbus.BingoVictoryEvent;
 import jaw.minigames.eventbus.CarBingoNewGameEvent;
 import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.eventbus.OnDestroyEvent;
@@ -24,6 +27,7 @@ import jaw.minigames.eventbus.OnStopEvent;
 import jaw.minigames.eventbus.RequestPresenterEvent;
 import jaw.minigames.view.adapter.CarBingoAdapter;
 import jaw.minigames.view.adapter.ICarBingoAdapter;
+import jaw.minigames.view.fragment.VictoryFragment;
 
 /**
  * Created by johan on 6/4/2017.
@@ -49,7 +53,7 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
-
+        EventBus.getDefault().register(this);
         EventBus.getDefault().post(new RequestPresenterEvent(this));
         EventBus.getDefault().post(new OnCreateEvent(this));
         /*gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -167,5 +171,12 @@ public class CarBingoActivity extends AppCompatActivity implements ICarBingoView
     @Override
     public void setToolbar() {
 
+    }
+
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void onBingoVictoryEvent(BingoVictoryEvent event){
+        VictoryFragment dialog = new VictoryFragment();
+        dialog.setGame(VictoryFragment.GAME_CARBINGO);
+        dialog.show(getFragmentManager(), "CarBingoVictoryDialog");
     }
 }

@@ -19,6 +19,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import jaw.minigames.R;
 import jaw.minigames.eventbus.MemoryNewGameEvent;
 import jaw.minigames.eventbus.MemoryScoreUpdateEvent;
+import jaw.minigames.eventbus.MemoryVictoryEvent;
 import jaw.minigames.eventbus.OnCreateEvent;
 import jaw.minigames.eventbus.OnDestroyEvent;
 import jaw.minigames.eventbus.OnPauseEvent;
@@ -29,6 +30,7 @@ import jaw.minigames.eventbus.RequestPresenterEvent;
 import jaw.minigames.eventbus.ShowMemoryEvent;
 import jaw.minigames.view.adapter.IMemoryAdapter;
 import jaw.minigames.view.adapter.MemoryAdapter;
+import jaw.minigames.view.fragment.VictoryFragment;
 
 public class MemoryActivity extends AppCompatActivity implements IMemoryView {
     private RecyclerView gridview;
@@ -167,5 +169,14 @@ public class MemoryActivity extends AppCompatActivity implements IMemoryView {
         this.scoreView.setText("The score is : " + event.getPlayerOneScore()
                 + " - " +
                 event.getPlayerTwoScore());
+    }
+
+    @Subscribe (threadMode = ThreadMode.MAIN)
+    public void onMemoryVictoryEvent(MemoryVictoryEvent event){
+        VictoryFragment dialog = new VictoryFragment();
+        dialog.setGame(VictoryFragment.GAME_MEMORY);
+        dialog.setPlayerOneScore(event.getPlayerOneScore());
+        dialog.setPlayerTwoScore(event.getPlayerTwoScore());
+        dialog.show(getFragmentManager(), "MemoryVictoryDialog");
     }
 }

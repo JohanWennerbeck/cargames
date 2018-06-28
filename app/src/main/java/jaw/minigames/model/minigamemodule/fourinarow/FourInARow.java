@@ -1,8 +1,11 @@
 package jaw.minigames.model.minigamemodule.fourinarow;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import jaw.minigames.eventbus.FourInARowVictoryEvent;
 import jaw.minigames.model.minigamemodule.memory.MemoryTile;
 
 /**
@@ -100,7 +103,7 @@ public class FourInARow implements IFourInARow {
             if (this.tiles.get(tile).getColor() == this.tiles.get(tile-6).getColor() && this.tiles.get(tile).getColor() != FourInARowTile.BLANK) {
                 count++;
                 if(count==3){
-                    System.out.println("VICTORY for player: " + this.turn);
+                    victory();
                 }
             } else {
                 count = 0;
@@ -126,7 +129,7 @@ public class FourInARow implements IFourInARow {
             if (this.tiles.get(tile).getColor() == this.tiles.get(tile+8).getColor() && this.tiles.get(tile).getColor() != FourInARowTile.BLANK) {
                 count++;
                 if(count==3){
-                    System.out.println("VICTORY for player: " + this.turn);
+                    victory();
                 }
             } else {
                 count = 0;
@@ -143,7 +146,7 @@ public class FourInARow implements IFourInARow {
             if (this.tiles.get(tempTile).getColor() == this.tiles.get(tempTile+1).getColor() && this.tiles.get(tempTile).getColor() != FourInARowTile.BLANK) {
                 count++;
                 if(count==3){
-                    System.out.println("VICTORY for player: " + this.turn);
+                    victory();
                 }
             } else {
                 count = 0;
@@ -157,8 +160,12 @@ public class FourInARow implements IFourInARow {
             if (this.tiles.get(tile+7).getColor() == this.turn &&
                     this.tiles.get(tile+14).getColor() == this.turn &&
                     this.tiles.get(tile+21).getColor() == this.turn) {
-                System.out.println("VICTORY for player: " + this.turn);
-            }
+                victory();
+                }
         }
+    }
+
+    public void victory(){
+        EventBus.getDefault().post(new FourInARowVictoryEvent(this.turn));
     }
 }
