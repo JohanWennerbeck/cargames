@@ -3,6 +3,8 @@ package jaw.minigames.model.minigamemodule.fourinarow;
 import java.util.ArrayList;
 import java.util.List;
 
+import jaw.minigames.model.minigamemodule.memory.MemoryTile;
+
 /**
  * Created by johan on 7/8/2017.
  */
@@ -50,6 +52,20 @@ public class FourInARow implements IFourInARow {
     @Override
     public void setTiles(List<IFourInARowTile> fourInARowTiles) {
         this.tiles = fourInARowTiles;
+        int blue = 0;
+        int red = 0;
+        for (IFourInARowTile tile : tiles){
+            if (tile.getColor()==FourInARowTile.RED) {
+                red++;
+            } else if (tile.getColor()==FourInARowTile.BLUE) {
+                blue++;
+            }
+        }
+        if (red > blue) {
+            turn = FourInARowTile.BLUE;
+        } else {
+            turn = FourInARowTile.RED;
+        }
     }
 
     public void switchTurn(int tileColor){
